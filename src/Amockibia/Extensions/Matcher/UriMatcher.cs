@@ -2,10 +2,11 @@
 using Amockibia.Utilities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
+using Amockibia.Rule;
 
-namespace Amockibia.Rule.Matcher
+namespace Amockibia.Extensions.Matcher
 {
-    internal class UriMatcher : RequestMatcher
+    internal class UriMatcher : IRequestMatchable
     {
         private Uri BaseUri { get; }
         private string RelativeUri { get; }
@@ -18,9 +19,9 @@ namespace Amockibia.Rule.Matcher
             ExpectedUri = new Uri(BaseUri, relativeUri);
         }
 
-        public override bool Matches(HttpContext context)
+        public bool Matches(HttpRequest request)
         {
-            var actual = context.Request.GetDisplayUrl();
+            var actual = request.GetDisplayUrl();
             return actual == ExpectedUri.ToString();
         }
     }

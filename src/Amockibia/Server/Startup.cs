@@ -39,8 +39,8 @@ namespace Amockibia
             {
                 try
                 {
-                    var matchedRule = Config.Rules.OrderBy(r => r.Priority).First(r => r.Matches(context));
-                    await matchedRule.Respond(context);
+                    var matchedRule = Config.Rules.OrderBy(r => r.Priority).First(r => r.Matches(context.Request));
+                    await matchedRule.Respond(context.Response);
                     //await next();
                 }
                 catch (Exception ex)

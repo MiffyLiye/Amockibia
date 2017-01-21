@@ -6,12 +6,12 @@ namespace Amockibia
     internal class ServerConfig
     {
         public AmockibiaServer Server { get; }
-        public List<HandlingRule> Rules { get; }
+        public List<RequestHandler> Rules { get; }
 
         public ServerConfig(AmockibiaServer server)
         {
             Server = server;
-            Rules = new List<HandlingRule>();
+            Rules = new List<RequestHandler>();
         }
     }
 }

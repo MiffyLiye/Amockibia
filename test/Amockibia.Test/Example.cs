@@ -1,45 +1,13 @@
-﻿using FluentAssertions;
-using System;
+﻿using Amockibia.Extensions;
+using FluentAssertions;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace Amockibia.Test
 {
-    public class Example : IDisposable
+    public class Example : TestBase
     {
-        private static object Locker = new object();
-        private static int PortNumber = 4000;
-        private Uri BaseAddress { get; }
-        private AmockibiaServer Server { get; }
-        private Lazy<HttpClient> InMemoryClient { get; }
-        private Lazy<HttpClient> SelfHostClient { get; }
-
-        public Example()
-        {
-            lock (Locker)
-            {
-                BaseAddress = new Uri($"http://localhost:{PortNumber}/");
-                PortNumber += 1;
-            }
-            Server = new AmockibiaServer(BaseAddress);
-            InMemoryClient = new Lazy<HttpClient>(() => Server.CreateInMemoryClient());
-            SelfHostClient = new Lazy<HttpClient>(() => { Server.StartSelfHost(); return new HttpClient { BaseAddress = BaseAddress }; });
-        }
-
-        public void Dispose()
-        {
-            if (InMemoryClient.IsValueCreated) InMemoryClient.Value.Dispose();
-            if (SelfHostClient.IsValueCreated) SelfHostClient.Value.Dispose();
-            Server.Dispose();
-        }
-
-        private HttpClient SelectHttpClient(bool isInMemoryHost)
-        {
-            return isInMemoryHost ? InMemoryClient.Value : SelfHostClient.Value;
-        }
-
         [Theory]
         [InlineData(true)]
         [InlineData(false)]

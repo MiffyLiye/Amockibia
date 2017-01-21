@@ -1,36 +1,16 @@
-using System.Net;
-using Amockibia.Rule;
-using Amockibia.Rule.Matcher;
-using Microsoft.AspNetCore.Http;
+using Amockibia.Extensions.Matcher;
 
-namespace Amockibia
+namespace Amockibia.Rule.Builder
 {
-    public class RuleBuilder
+    public class RuleBuilder : IRuleBuildable
     {
         public string RelativeUri { get; set; }
 
-        private RequestResponder Responder { get; set; }
+        internal IRequestRespondable Responder { get; set; }
 
-        internal HandlingRule Build(string serverId)
+        public RequestHandler Build(string serverId)
         {
-            return new HandlingRule(new UriMatcher(serverId, RelativeUri), Responder);
-        }
-
-        public RuleBuilder RespondOK()
-        {
-            Responder = new RequestResponder(async context => {
-                context.Response.StatusCode = (int) HttpStatusCode.OK;
-                await context.Response.WriteAsync("");
-            });
-            return this;
-        }
-    }
-
-    public class When
-    {
-        public static RuleBuilder Get(string relativeUri)
-        {
-            return new RuleBuilder{ RelativeUri = relativeUri };
+            return new RequestHandler(new UriMatcher(serverId, RelativeUri), Responder);
         }
     }
 }

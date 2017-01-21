@@ -3,7 +3,7 @@ using System;
 using Microsoft.AspNetCore.TestHost;
 using System.Net.Http;
 using Amockibia.Utilities;
-using Amockibia.Rule;
+using Amockibia.Rule.Builder;
 
 namespace Amockibia
 {
@@ -68,7 +68,7 @@ namespace Amockibia
             ServerID.Stop();
         }
 
-        public void Stub(RuleBuilder builder)
+        public void Stub(IRuleBuildable builder)
         {
             ServerID.GetConfig().Rules.Add(builder.Build(ServerID));
         }
