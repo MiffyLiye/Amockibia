@@ -6,7 +6,7 @@ namespace Amockibia.Test
     public abstract class TestBase
     {
         private static object Locker = new object();
-        private static int PortNumber = 4000;
+        private static int NextPortNumber = 4000;
         private Uri BaseAddress { get; }
         protected AmockibiaServer Server { get; }
         private Lazy<HttpClient> InMemoryClient { get; }
@@ -16,8 +16,8 @@ namespace Amockibia.Test
         {
             lock (Locker)
             {
-                BaseAddress = new Uri($"http://localhost:{PortNumber}/");
-                PortNumber += 1;
+                BaseAddress = new Uri($"http://localhost:{NextPortNumber}/");
+                NextPortNumber += 1;
             }
             Server = new AmockibiaServer(BaseAddress);
             InMemoryClient = new Lazy<HttpClient>(() => Server.CreateInMemoryClient());

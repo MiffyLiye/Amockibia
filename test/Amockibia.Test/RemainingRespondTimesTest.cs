@@ -28,7 +28,7 @@ namespace Amockibia.Test
         [InlineData(0)]
         [InlineData(1)]
         [InlineData(2)]
-        public async Task should_respond_normally_until_remaining_respond_times_becomes_zero(int limit)
+        public async Task should_return_stub_until_remaining_respond_times_becomes_zero(int limit)
         {
             Server.Stub(new LimitedTimesOKRuleBuilder(limit));
             var client = SelectHttpClient(true);
@@ -42,7 +42,7 @@ namespace Amockibia.Test
         }
 
         [Fact]
-        public async Task should_always_normally_when_remaining_respond_times_is_negative_one_which_means_infinite()
+        public async Task should_always_return_stub_when_remaining_respond_times_is_negative_one_which_means_infinite()
         {
             Server.Stub(new LimitedTimesOKRuleBuilder(-1));
             var client = SelectHttpClient(true);

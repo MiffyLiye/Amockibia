@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.TestHost;
 using System.Net.Http;
 using Amockibia.Utilities;
 using Amockibia.Rule.Builder;
+using Amockibia.Rule;
 
 namespace Amockibia
 {
@@ -25,7 +26,7 @@ namespace Amockibia
 
             }
             var config = ServerId.GetConfig(this);
-            ServerId.GetConfig().Rules.Add(new DefaultRule());
+            config.Rules.Add(new RequestHandler(new AlwaysMatchMatcher(), new NotImplementedResponder(), int.MaxValue, -1));
 
             BaseAddress = baseAddress;
 

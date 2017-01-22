@@ -3,9 +3,8 @@ using System.Threading.Tasks;
 
 namespace Amockibia.Rule
 {
-    public class RequestHandler
+    public sealed class RequestHandler
     {
-        private object Locker { get; } = new object();
         private IRequestMatchable Matcher { get; }
         private IRequestRespondable Responder { get; }
         /// <summary>
@@ -25,21 +24,27 @@ namespace Amockibia.Rule
             RemainingRespondTimes = remainingRespondTimes;
         }
 
+        public bool Alive()
+        {
+            return RemainingRespondTimes != 0;
+        }
+
+        public void Reserve()
+        {
+            RemainingRespondTimes -= RemainingRespondTimes == -1 ? 0 : 1;
+        }
+
+        /// <summary>
+        /// Get whether this handler can be used to process the request.
+        /// Should have no side effects.
+        /// </summary>
         public bool Matches(HttpRequest request)
         {
-            lock (Locker)
-            {
-                return RemainingRespondTimes != 0 &&
-                    Matcher.Matches(request);
-            }
+            return Matcher.Matches(request);
         }
 
         public async Task Respond(HttpResponse response)
         {
-            lock (Locker)
-            {
-                RemainingRespondTimes -= 1;
-            }
             await Responder.Respond(response);
         }
     }

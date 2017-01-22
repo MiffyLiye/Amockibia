@@ -7,11 +7,13 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using System.Linq;
 using Amockibia.Utilities;
+using Amockibia.Rule;
 
 namespace Amockibia
 {
     public class Startup
     {
+        private object Locker { get; } = new object();
         private string ServerId { get; }
         private ServerConfig Config { get; }
         public Startup(IHostingEnvironment env)
@@ -38,7 +40,13 @@ namespace Amockibia
             {
                 try
                 {
-                    var matchedRule = Config.Rules.OrderBy(r => r.Priority).First(r => r.Matches(context.Request));
+                    var candidateRules = Config.Rules.Where(r => r.Alive() && r.Matches(context.Request)).OrderBy(r => r.Priority).ToList();
+                    RequestHandler matchedRule;
+                    lock (Locker)
+                    {
+                        matchedRule = candidateRules.First(r => r.Alive());
+                        matchedRule.Reserve();
+                    }
                     await matchedRule.Respond(context.Response);
                     //await next();
                 }

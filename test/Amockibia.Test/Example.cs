@@ -40,7 +40,6 @@ namespace Amockibia.Test
             }
         }
 
-
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
