@@ -8,15 +8,12 @@ namespace Amockibia.Extensions.Matcher
 {
     internal class UriMatcher : IRequestMatchable
     {
-        private Uri BaseUri { get; }
-        private string RelativeUri { get; }
         private Uri ExpectedUri { get; }
 
         public UriMatcher(string serverId, string relativeUri)
         {
-            BaseUri = serverId.GetConfig().Server.BaseAddress;
-            RelativeUri = relativeUri;
-            ExpectedUri = new Uri(BaseUri, relativeUri);
+            var baseUri = serverId.GetConfig().Server.BaseAddress;
+            ExpectedUri = new Uri(baseUri, relativeUri);
         }
 
         public bool Matches(HttpRequest request)

@@ -8,7 +8,7 @@ using Xunit;
 
 namespace Amockibia.Test
 {
-    public class PriorityTest : TestBase
+    public class HybridModeTest : TestBase
     {
         private class PriorityRuleBuilder : IRuleBuildable
         {
@@ -26,15 +26,16 @@ namespace Amockibia.Test
         }
 
         [Fact]
-        public async Task should_get_response_from_high_priority_handler_until_it_expires()
+        public async Task should_share_same_server_when_use_both_self_host_client_and_in_memory_client()
         {
             Server.Stub(new PriorityRuleBuilder(HttpStatusCode.OK, 1));
             Server.Stub(new PriorityRuleBuilder(HttpStatusCode.NoContent, 2));
 
-            var client = SelectHttpClient(true);
+            var inMemoryClient = SelectHttpClient(true);
+            var selfHostClient = SelectHttpClient(false);
 
-            (await client.GetAsync("")).StatusCode.Should().Be(HttpStatusCode.OK);
-            (await client.GetAsync("")).StatusCode.Should().Be(HttpStatusCode.NoContent);
+            (await inMemoryClient.GetAsync("")).StatusCode.Should().Be(HttpStatusCode.OK);
+            (await selfHostClient.GetAsync("")).StatusCode.Should().Be(HttpStatusCode.NoContent);
         }
     }
 }

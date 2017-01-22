@@ -12,15 +12,14 @@ namespace Amockibia
 {
     public class Startup
     {
-        private string ServerID { get; }
+        private string ServerId { get; }
         private ServerConfig Config { get; }
         public Startup(IHostingEnvironment env)
         {
-            ServerID = env.EnvironmentName;
-            Config = ServerID.GetConfig();
+            ServerId = env.EnvironmentName;
+            Config = ServerId.GetConfig();
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }

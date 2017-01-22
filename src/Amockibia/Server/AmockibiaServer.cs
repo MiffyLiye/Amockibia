@@ -10,9 +10,9 @@ namespace Amockibia
     public class AmockibiaServer : IDisposable
     {
         private static object Locker { get; } = new object();
-        private static int NextID = 1;
+        private static int NextId = 1;
         public Uri BaseAddress { get; }
-        private string ServerID { get; }
+        private string ServerId { get; }
         private Lazy<IWebHost> SelfHost { get; }
         private Lazy<TestServer> InMemoryHost { get; }
 
@@ -20,12 +20,12 @@ namespace Amockibia
         {
             lock (Locker)
             {
-                ServerID = NextID.ToString();
-                NextID += 1;
+                ServerId = NextId.ToString();
+                NextId += 1;
 
             }
-            var config = ServerID.GetConfig(this);
-            ServerID.GetConfig().Rules.Add(new DefaultRule());
+            var config = ServerId.GetConfig(this);
+            ServerId.GetConfig().Rules.Add(new DefaultRule());
 
             BaseAddress = baseAddress;
 
@@ -33,13 +33,13 @@ namespace Amockibia
             new WebHostBuilder()
                 .UseKestrel()
                 .UseStartup(typeof(Startup))
-                .UseEnvironment(ServerID)
+                .UseEnvironment(ServerId)
                 .Start(new[] { BaseAddress.ToString() }));
 
             InMemoryHost = new Lazy<TestServer>(() =>
             new TestServer(new WebHostBuilder()
                 .UseStartup(typeof(Startup))
-                .UseEnvironment(ServerID)));
+                .UseEnvironment(ServerId)));
         }
 
         public void StartSelfHost()
@@ -65,12 +65,12 @@ namespace Amockibia
         {
             if (SelfHost.IsValueCreated) SelfHost.Value.Dispose();
             if (InMemoryHost.IsValueCreated) InMemoryHost.Value.Dispose();
-            ServerID.Stop();
+            ServerId.Stop();
         }
 
         public void Stub(IRuleBuildable builder)
         {
-            ServerID.GetConfig().Rules.Add(builder.Build(ServerID));
+            ServerId.GetConfig().Rules.Add(builder.Build(ServerId));
         }
     }
 }
