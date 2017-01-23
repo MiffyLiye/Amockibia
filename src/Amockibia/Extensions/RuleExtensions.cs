@@ -1,6 +1,4 @@
 ﻿using Amockibia.Extensions.Responder;
-using Amockibia.Rule;
-using Amockibia.Rule.Builder;
 using Microsoft.AspNetCore.Http;
 using System.Net;
 

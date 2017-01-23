@@ -1,5 +1,6 @@
 ﻿using Amockibia.Rule;
 using Amockibia.Rule.Builder;
+using Amockibia.Stub;
 using Amockibia.Test.Utilities;
 using FluentAssertions;
 using System.Net;

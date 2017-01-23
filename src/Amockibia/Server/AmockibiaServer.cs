@@ -13,7 +13,7 @@ namespace Amockibia
         private static object Locker { get; } = new object();
         private static int NextId = 1;
         public Uri BaseAddress { get; }
-        private string ServerId { get; }
+        public string ServerId { get; }
         private Lazy<IWebHost> SelfHost { get; }
         private Lazy<TestServer> InMemoryHost { get; }
 
@@ -67,11 +67,6 @@ namespace Amockibia
             if (SelfHost.IsValueCreated) SelfHost.Value.Dispose();
             if (InMemoryHost.IsValueCreated) InMemoryHost.Value.Dispose();
             ServerId.Stop();
-        }
-
-        public void Stub(IRuleBuildable builder)
-        {
-            ServerId.GetConfig().Rules.Add(builder.Build(ServerId));
         }
     }
 }

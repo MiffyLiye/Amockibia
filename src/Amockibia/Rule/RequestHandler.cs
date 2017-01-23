@@ -1,10 +1,14 @@
 using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Amockibia.Rule
 {
     public sealed class RequestHandler
     {
+        public string Id { get; }
+        private List<HttpRequest> HandledRequests { get; }
+        public IReadOnlyList<HttpRequest> ReceivedRequests => HandledRequests.AsReadOnly();
         private IRequestMatchable Matcher { get; }
         private IRequestRespondable Responder { get; }
         /// <summary>
@@ -16,12 +20,14 @@ namespace Amockibia.Rule
         /// </summary>
         public int RemainingRespondTimes { get; private set; }
 
-        public RequestHandler(IRequestMatchable requestMatcher, IRequestRespondable responder, int priority = 100, int remainingRespondTimes = -1)
+        public RequestHandler(IRequestMatchable requestMatcher, IRequestRespondable responder, int priority = 100, int remainingRespondTimes = -1, string id = null)
         {
+            HandledRequests = new List<HttpRequest>();
             Matcher = requestMatcher;
             Responder = responder;
             Priority = priority;
             RemainingRespondTimes = remainingRespondTimes;
+            Id = id;
         }
 
         public bool Alive()
@@ -46,6 +52,7 @@ namespace Amockibia.Rule
         public async Task Respond(HttpResponse response)
         {
             await Responder.Respond(response);
+            HandledRequests.Add(response.HttpContext.Request);
         }
     }
 }

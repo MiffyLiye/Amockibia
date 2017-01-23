@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
+using Amockibia.Stub;
 using Xunit;
 using System.Net;
 using FluentAssertions;

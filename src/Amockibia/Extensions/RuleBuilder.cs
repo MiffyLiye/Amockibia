@@ -1,6 +1,9 @@
+using System;
 using Amockibia.Extensions.Matcher;
+using Amockibia.Rule;
+using Amockibia.Rule.Builder;
 
-namespace Amockibia.Rule.Builder
+namespace Amockibia.Extensions
 {
     public class RuleBuilder : IRuleBuildable
     {
@@ -11,6 +14,11 @@ namespace Amockibia.Rule.Builder
         public RequestHandler Build(string serverId)
         {
             return new RequestHandler(new UriMatcher(serverId, RelativeUri), Responder);
+        }
+
+        RequestHandler IRuleBuildable.Build(string serverId)
+        {
+            throw new NotImplementedException();
         }
     }
 }
