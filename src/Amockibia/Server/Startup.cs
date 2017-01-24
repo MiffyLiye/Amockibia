@@ -47,8 +47,7 @@ namespace Amockibia
                         matchedRule = candidateRules.First(r => r.Alive());
                         matchedRule.Reserve();
                     }
-                    await matchedRule.Respond(context.Response);
-                    //await next();
+                    await matchedRule.Respond(context.Request, context.Response);
                 }
                 catch (Exception ex)
                 {

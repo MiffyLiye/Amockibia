@@ -12,7 +12,7 @@ namespace Amockibia.Test.Utilities
         {
             StatusCode = statusCode;
         }
-        public async Task Respond(HttpResponse response)
+        public async Task Respond(HttpRequest request, HttpResponse response)
         {
             response.StatusCode = (int)StatusCode;
             await response.WriteAsync("");

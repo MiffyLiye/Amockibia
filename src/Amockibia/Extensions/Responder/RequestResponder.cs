@@ -13,7 +13,7 @@ namespace Amockibia.Extensions.Responder
             RespondAction = respond;
         }
 
-        public async Task Respond(HttpResponse response)
+        public async Task Respond(HttpRequest request, HttpResponse response)
         {
             await RespondAction(response);
         }

@@ -12,11 +12,11 @@ namespace Amockibia.Rule
         private IRequestMatchable Matcher { get; }
         private IRequestRespondable Responder { get; }
         /// <summary>
-        /// Priority: smaller value means higher priority.
+        /// Smaller value means higher priority.
         /// </summary>
         public int Priority { get; }
         /// <summary>
-        /// RemainingRespondTime: times it can respond to matched requests before this rule get invalid. -1 means infinite.
+        /// Times it can respond to matched requests before this rule get expired. -1 means infinite.
         /// </summary>
         public int RemainingRespondTimes { get; private set; }
 
@@ -49,9 +49,9 @@ namespace Amockibia.Rule
             return Matcher.Matches(request);
         }
 
-        public async Task Respond(HttpResponse response)
+        public async Task Respond(HttpRequest request, HttpResponse response)
         {
-            await Responder.Respond(response);
+            await Responder.Respond(request, response);
             HandledRequests.Add(response.HttpContext.Request);
         }
     }
