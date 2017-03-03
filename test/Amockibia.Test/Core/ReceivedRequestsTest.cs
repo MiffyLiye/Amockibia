@@ -1,15 +1,15 @@
-﻿using Amockibia.Rule;
-using Amockibia.Rule.Builder;
-using Amockibia.Stub;
-using Amockibia.Verify;
-using Amockibia.Test.Utilities;
-using FluentAssertions;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Amockibia.Rule;
+using Amockibia.Rule.Builder;
+using Amockibia.Stub;
+using Amockibia.Test.Core.Utilities;
+using Amockibia.Verify;
+using FluentAssertions;
 using Xunit;
 
-namespace Amockibia.Test
+namespace Amockibia.Test.Core
 {
     public class ReceivedRequestsTest : TestBase
     {

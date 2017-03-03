@@ -1,14 +1,14 @@
-﻿using Amockibia.Rule;
+﻿using System.Net;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using System.Net;
+using Amockibia.Rule;
 using Amockibia.Rule.Builder;
-using Amockibia.Test.Utilities;
-using Xunit;
 using Amockibia.Stub;
+using Amockibia.Test.Core.Utilities;
 using FluentAssertions;
+using Microsoft.AspNetCore.Http;
+using Xunit;
 
-namespace Amockibia.Test
+namespace Amockibia.Test.Core
 {
     public class RespondBasedOnRequestTest : TestBase
     {

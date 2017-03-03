@@ -1,9 +1,9 @@
-﻿using Amockibia.Rule;
-using Microsoft.AspNetCore.Http;
-using System.Net;
+﻿using System.Net;
 using System.Threading.Tasks;
+using Amockibia.Rule;
+using Microsoft.AspNetCore.Http;
 
-namespace Amockibia.Test.Utilities
+namespace Amockibia.Test.Core.Utilities
 {
     internal class StatusCodeOnlyResponder : IRequestRespondable
     {

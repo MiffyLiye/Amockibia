@@ -1,14 +1,14 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
 using Amockibia.Stub;
-using Xunit;
-using System.Net;
+using Amockibia.Test.Core.Utilities;
 using FluentAssertions;
-using System.Linq;
-using Amockibia.Test.Utilities;
+using Xunit;
 
-namespace Amockibia.Test
+namespace Amockibia.Test.Core
 {
     public class RemainingRespondTimesTest : TestBase
     {

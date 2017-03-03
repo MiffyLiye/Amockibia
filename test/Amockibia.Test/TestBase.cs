@@ -12,11 +12,12 @@ namespace Amockibia.Test
         private Lazy<HttpClient> InMemoryClient { get; }
         private Lazy<HttpClient> SelfHostClient { get; }
 
-        public TestBase()
+        public TestBase(string baseRelativeUrl = "")
         {
+            baseRelativeUrl = baseRelativeUrl.StartsWith("/") ? baseRelativeUrl : "/" + baseRelativeUrl;
             lock (Locker)
             {
-                BaseAddress = new Uri($"http://localhost:{NextPortNumber}/");
+                BaseAddress = new Uri($"http://localhost:{NextPortNumber}/{baseRelativeUrl}");
                 NextPortNumber += 1;
             }
             Server = new AmockibiaServer(BaseAddress);

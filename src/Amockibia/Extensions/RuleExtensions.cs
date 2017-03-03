@@ -1,6 +1,7 @@
 ﻿using Amockibia.Extensions.Responder;
 using Microsoft.AspNetCore.Http;
 using System.Net;
+using System.Net.Http;
 
 namespace Amockibia.Extensions
 {
@@ -8,7 +9,7 @@ namespace Amockibia.Extensions
     {
         public static RuleBuilder Get(string relativeUri)
         {
-            return new RuleBuilder { RelativeUri = relativeUri };
+            return new RuleBuilder { HttpMethod = HttpMethod.Get , RelativeUri = relativeUri };
         }
     }
 

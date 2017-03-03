@@ -1,7 +1,7 @@
 ﻿using Amockibia.Rule;
 using Microsoft.AspNetCore.Http;
 
-namespace Amockibia.Test.Utilities
+namespace Amockibia.Test.Core.Utilities
 {
     internal class AlwaysMatchMatcher : IRequestMatchable
     {
