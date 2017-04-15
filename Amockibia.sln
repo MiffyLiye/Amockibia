@@ -1,21 +1,20 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26114.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6BD0B3A4-74EE-48CE-AF54-A44F447169C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A757629C-C019-40DC-93F0-AF76B9145522}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Amockibia", "src\Amockibia\Amockibia.xproj", "{4B37C180-5CA6-400C-878A-94DA8C4A8750}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amockibia", "src\Amockibia\Amockibia.csproj", "{4B37C180-5CA6-400C-878A-94DA8C4A8750}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F88A9EB3-576D-4CDC-8A6F-27B0E27ACE2E}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Amockibia.Test", "test\Amockibia.Test\Amockibia.Test.xproj", "{65751D81-3CB5-4C1E-B774-88EAEE8A1A4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amockibia.Test", "test\Amockibia.Test\Amockibia.Test.csproj", "{65751D81-3CB5-4C1E-B774-88EAEE8A1A4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
