@@ -1,4 +1,5 @@
 # Amockibia
+[![Build status](https://ci.appveyor.com/api/projects/status/ye6q2mr0xwo7h497/branch/master?svg=true)](https://ci.appveyor.com/project/MiffyLiye/amockibia/branch/master)
 
 A hybrid HTTP mock library that can start both in memory server and self host server.
 
@@ -11,7 +12,7 @@ A hybrid HTTP mock library that can start both in memory server and self host se
 ## Status
 * It is in early development stage.
 * It can run cross-platform on Windows, macOS, and Linux via .NET Core.
-* Current core facilities can make complex things possible. 
+* Current core facilities can make complex things possible.
 * Future extensions will make simple things simple.
 * Future extensions will make it IDE (and text editor) friendly.
 
