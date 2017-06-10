@@ -1,11 +1,11 @@
 ﻿using Amockibia.Rule.Builder;
 using Amockibia.Utilities;
 
-namespace Amockibia.Stub
+namespace Amockibia.Setup
 {
-    public static class StubExtensions
+    public static class SetupExtensions
     {
-        public static void Stub(this AmockibiaServer server, IRuleBuildable builder)
+        public static void Setup(this AmockibiaServer server, IRuleBuildable builder)
         {
             server.ServerId.GetConfig().Rules.Add(builder.Build(server.ServerId));
         }

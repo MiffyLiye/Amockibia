@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
-using Amockibia.Stub;
+using Amockibia.Setup;
 using Amockibia.Test.Core.Utilities;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
@@ -34,7 +34,7 @@ namespace Amockibia.Test.Core
         [InlineData("/second")]
         public async Task should_respond_based_on_request(string relativeUri)
         {
-            Server.Stub(new RequestPathRuleBuilder());
+            Server.Setup(new RequestPathRuleBuilder());
             var client = SelectHttpClient(true);
 
             var response = await client.GetAsync(relativeUri);

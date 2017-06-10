@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
-using Amockibia.Stub;
+using Amockibia.Setup;
 using Amockibia.Test.Core.Utilities;
 using FluentAssertions;
 using Xunit;
@@ -29,8 +29,8 @@ namespace Amockibia.Test.Core
         [Fact]
         public async Task should_get_response_from_high_priority_handler_until_it_expires()
         {
-            Server.Stub(new PriorityRuleBuilder(HttpStatusCode.OK, 1));
-            Server.Stub(new PriorityRuleBuilder(HttpStatusCode.NoContent, 2));
+            Server.Setup(new PriorityRuleBuilder(HttpStatusCode.OK, 1));
+            Server.Setup(new PriorityRuleBuilder(HttpStatusCode.NoContent, 2));
 
             var client = SelectHttpClient(true);
 

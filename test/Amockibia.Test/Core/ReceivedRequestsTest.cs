@@ -3,7 +3,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
-using Amockibia.Stub;
+using Amockibia.Setup;
 using Amockibia.Test.Core.Utilities;
 using Amockibia.Verify;
 using FluentAssertions;
@@ -34,7 +34,7 @@ namespace Amockibia.Test.Core
         public async Task should_get_received_requests_for_verification(string relativeUri)
         {
             var handlerId = "Get OK";
-            Server.Stub(new NamedRuleBuilder(handlerId));
+            Server.Setup(new NamedRuleBuilder(handlerId));
             var client = SelectHttpClient(true);
 
             await client.GetAsync(relativeUri);
@@ -47,7 +47,7 @@ namespace Amockibia.Test.Core
         public async Task should_get_received_requests_in_order_for_verification()
         {
             var handlerId = "Get OK";
-            Server.Stub(new NamedRuleBuilder(handlerId));
+            Server.Setup(new NamedRuleBuilder(handlerId));
             var client = SelectHttpClient(true);
 
             await client.GetAsync("/first");

@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
-using Amockibia.Stub;
+using Amockibia.Setup;
 using Amockibia.Test.Core.Utilities;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
@@ -46,7 +46,7 @@ namespace Amockibia.Test.Core
         [InlineData(false)]
         public async Task should_return_not_implemented_when_request_not_matched(bool isInMemoryHost)
         {
-            Server.Stub(new HttpMethodMatchRuleBuilder(HttpMethod.Delete));
+            Server.Setup(new HttpMethodMatchRuleBuilder(HttpMethod.Delete));
             var client = SelectHttpClient(isInMemoryHost);
 
             var response = await client.GetAsync("NotImplemented");
@@ -59,7 +59,7 @@ namespace Amockibia.Test.Core
         [InlineData(false)]
         public async Task should_return_stub_when_request_matched(bool isInMemoryHost)
         {
-            Server.Stub(new HttpMethodMatchRuleBuilder(HttpMethod.Delete));
+            Server.Setup(new HttpMethodMatchRuleBuilder(HttpMethod.Delete));
             var client = SelectHttpClient(isInMemoryHost);
 
             var response = await client.DeleteAsync("");
