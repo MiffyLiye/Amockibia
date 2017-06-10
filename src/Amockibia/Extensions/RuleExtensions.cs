@@ -7,9 +7,29 @@ namespace Amockibia.Extensions
 {
     public class When
     {
+        public static RuleBuilder Receive(HttpMethod httpMethod, string relativeUri)
+        {
+            return new RuleBuilder { HttpMethod = httpMethod, RelativeUri = relativeUri };
+        }
+
         public static RuleBuilder Get(string relativeUri)
         {
-            return new RuleBuilder { HttpMethod = HttpMethod.Get , RelativeUri = relativeUri };
+            return Receive(HttpMethod.Get, relativeUri);
+        }
+        
+        public static RuleBuilder Post(string relativeUri)
+        {
+            return Receive(HttpMethod.Post, relativeUri);
+        }
+        
+        public static RuleBuilder Put(string relativeUri)
+        {
+            return Receive(HttpMethod.Put, relativeUri);
+        }
+        
+        public static RuleBuilder Delete(string relativeUri)
+        {
+            return Receive(HttpMethod.Delete, relativeUri);
         }
     }
 
