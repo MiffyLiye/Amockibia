@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Amockibia.Rule
@@ -51,8 +52,15 @@ namespace Amockibia.Rule
 
         public async Task Respond(HttpRequest request, HttpResponse response)
         {
+            if (!string.IsNullOrEmpty(Id))
+            {
+                var persistentStream = new MemoryStream();
+                await response.HttpContext.Request.Body.CopyToAsync(persistentStream);
+                response.HttpContext.Request.Body = persistentStream;
+                
+                HandledRequests.Add(response.HttpContext.Request);
+            }
             await Responder.Respond(request, response);
-            HandledRequests.Add(response.HttpContext.Request);
         }
     }
 }

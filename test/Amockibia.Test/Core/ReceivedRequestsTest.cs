@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
@@ -57,6 +58,22 @@ namespace Amockibia.Test.Core
             receivedRequests.Count.Should().Be(2);
             receivedRequests.First().Path.ToString().Should().Be("/first");
             receivedRequests.Last().Path.ToString().Should().Be("/last");
+        }
+        
+        [Fact]
+        public async Task should_get_received_request_contents_in_order_for_verification()
+        {
+            var handlerId = "Get OK";
+            Server.Setup(new NamedRuleBuilder(handlerId));
+            var client = SelectHttpClient(true);
+
+            await client.PostAsync("/", new StringContent("first"));
+            await client.PostAsync("/", new StringContent("last"));
+
+            var receivedRequests = Server.Handler(handlerId).ReceivedRequests;
+            receivedRequests.Count.Should().Be(2);
+            (await receivedRequests.First().Body.ReadAsStringAsync()).Should().Be("first");
+            (await receivedRequests.Last().Body.ReadAsStringAsync()).Should().Be("last");
         }
     }
 }
