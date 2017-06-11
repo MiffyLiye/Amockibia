@@ -20,7 +20,7 @@ namespace Amockibia.Test.Extensions
         [Fact]
         public async Task should_match_same_relative_uri()
         {
-            Server.Setup(When.Get("relative-stub-uri").RespondOK());
+            Server.Setup(When.Get("relative-stub-uri").SendOK());
 
             var response = await Client.GetAsync("relative-stub-uri");
 
@@ -30,7 +30,7 @@ namespace Amockibia.Test.Extensions
         [Fact]
         public async Task should_match_same_absolute_uri()
         {
-            Server.Setup(When.Get("relative-stub-uri").RespondOK());
+            Server.Setup(When.Get("relative-stub-uri").SendOK());
 
             var response = await Client.GetAsync($"{Server.BaseAddress}relative-stub-uri");
 
@@ -43,7 +43,7 @@ namespace Amockibia.Test.Extensions
         [InlineData("stub=1&uri=2")]
         public async Task should_match_same_uri_and_ignore_additional_query(string query)
         {
-            Server.Setup(When.Get("stub-uri").RespondOK());
+            Server.Setup(When.Get("stub-uri").SendOK());
 
             var response = await Client.GetAsync($"stub-uri?{query}");
 
@@ -56,7 +56,7 @@ namespace Amockibia.Test.Extensions
         [InlineData("hash?stub=1&uri=2")]
         public async Task should_match_same_uri_and_ignore_additional_hash(string hash)
         {
-            Server.Setup(When.Get("stub-uri").RespondOK());
+            Server.Setup(When.Get("stub-uri").SendOK());
 
             var response = await Client.GetAsync($"stub-uri#{hash}");
 
@@ -70,7 +70,7 @@ namespace Amockibia.Test.Extensions
         [InlineData("/stub-uri")]
         public async Task should_not_match_different_uri(string uri)
         {
-            Server.Setup(When.Get("stub-uri").RespondOK());
+            Server.Setup(When.Get("stub-uri").SendOK());
 
             var response = await Client.GetAsync(uri);
 
@@ -80,7 +80,7 @@ namespace Amockibia.Test.Extensions
         [Fact]
         public async Task should_not_match_different_http_method()
         {
-            Server.Setup(When.Get("stub-uri").RespondOK());
+            Server.Setup(When.Get("stub-uri").SendOK());
 
             var response = await Client.PostAsync("stub-uri", null);
 

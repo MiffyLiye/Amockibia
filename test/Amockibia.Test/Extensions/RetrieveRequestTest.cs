@@ -22,7 +22,7 @@ namespace Amockibia.Test.Extensions
         [Fact]
         public async Task should_retrieve_has_been_called()
         {
-            Server.Setup(When.Delete("stub-uri").RespondOK().WithId("delete action"));
+            Server.Setup(When.Delete("stub-uri").SendOK().WithId("delete action"));
             await Client.DeleteAsync( "stub-uri");
 
             Server.Retrieve("delete action").HasBeenCalled.Should().BeTrue();
@@ -31,7 +31,7 @@ namespace Amockibia.Test.Extensions
         [Fact]
         public async Task should_retrieve_has_not_been_called()
         {
-            Server.Setup(When.Delete("stub-uri").RespondOK().WithId("delete action"));
+            Server.Setup(When.Delete("stub-uri").SendOK().WithId("delete action"));
             await Client.GetAsync( "stub-uri");
 
             Server.Retrieve("delete action").HasBeenCalled.Should().BeFalse();
@@ -42,7 +42,7 @@ namespace Amockibia.Test.Extensions
         [InlineData(2)]
         public async Task should_retrieve_has_been_called_times(int times)
         {
-            Server.Setup(When.Delete("stub-uri").RespondOK().WithId("delete action"));
+            Server.Setup(When.Delete("stub-uri").SendOK().WithId("delete action"));
             for (var time = 0; time < times; time++)
             {
                 await Client.DeleteAsync("stub-uri");
@@ -56,7 +56,7 @@ namespace Amockibia.Test.Extensions
         [InlineData("send email")]
         public async Task should_retrieve_request_content(string name)
         {
-            Server.Setup(When.Post("stub-uri").RespondOK().WithId("post action"));
+            Server.Setup(When.Post("stub-uri").SendOK().WithId("post action"));
             await Client.PostAsync("stub-uri", new ObjectContent(new {Name = name}));
 
             var data = await Server.Retrieve("post action").Requests.Single().Body
@@ -68,7 +68,7 @@ namespace Amockibia.Test.Extensions
         [Fact]
         public async Task should_retrieve_request_contents_in_order()
         {
-            Server.Setup(When.Post("stub-uri").RespondOK().WithId("post action"));
+            Server.Setup(When.Post("stub-uri").SendOK().WithId("post action"));
             await Client.PostAsync("stub-uri", new ObjectContent(new {Name = "first"}));
             await Client.PostAsync("stub-uri", new ObjectContent(new {Name = "last"}));
 

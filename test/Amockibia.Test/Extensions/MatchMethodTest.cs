@@ -26,7 +26,7 @@ namespace Amockibia.Test.Extensions
         public async Task should_match_same_method(string httpMethodName)
         {
             var httpMethod = ToHttpMethod(httpMethodName);
-            Server.Setup(When.Receive(httpMethod, "stub-uri").RespondOK());
+            Server.Setup(When.Receive(httpMethod, "stub-uri").SendOK());
 
             var response = await Client.SendAsync(new HttpRequestMessage(httpMethod, "stub-uri"));
 
@@ -40,7 +40,7 @@ namespace Amockibia.Test.Extensions
         [InlineData("Delete")]
         public async Task should_not_match_different_method(string httpMethodName)
         {
-            Server.Setup(When.Receive(HttpMethod.Options, "stub-uri").RespondOK());
+            Server.Setup(When.Receive(HttpMethod.Options, "stub-uri").SendOK());
 
             var httpMethod = ToHttpMethod(httpMethodName);
             var response = await Client.SendAsync(new HttpRequestMessage(httpMethod, "stub-uri"));

@@ -1,5 +1,4 @@
-﻿using Amockibia.Extensions.Responder;
-using Microsoft.AspNetCore.Http;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 
@@ -35,12 +34,27 @@ namespace Amockibia.Extensions
 
     public static class RuleExtensions
     {
-        public static RuleBuilder RespondOK(this RuleBuilder builder)
+        // ReSharper disable once InconsistentNaming
+        public static RuleBuilder SendOK(this RuleBuilder builder)
         {
-            builder.Responder = new RequestResponder(async response => {
-                response.StatusCode = (int)HttpStatusCode.OK;
-                await response.WriteAsync("");
-            });
+            return builder.Send(HttpStatusCode.OK);
+        }
+
+        public static RuleBuilder Send(this RuleBuilder builder, HttpStatusCode httpStatusCode)
+        {
+            builder.HttpStatusCode = httpStatusCode;
+            return builder;
+        }
+        
+        public static RuleBuilder WithPayloadObject(this RuleBuilder builder, object payload)
+        {
+            builder.Payload = payload;
+            return builder;
+        }
+        
+        public static RuleBuilder WithHeader(this RuleBuilder builder, string key, string value)
+        {
+            builder.ExtraHeaders.Add(new KeyValuePair<string, string>(key, value));
             return builder;
         }
     }
