@@ -21,6 +21,7 @@ namespace Amockibia.Extensions
         public HttpStatusCode HttpStatusCode { get; set; }
         public object Payload { get; set; }
         public List<KeyValuePair<string, string>> ExtraHeaders { get; set; }
+        public int Priority { get; set; }
 
         public RuleBuilder()
         {
@@ -41,7 +42,7 @@ namespace Amockibia.Extensions
                 }
                 await response.WriteAsync(Payload != null ? JsonConvert.SerializeObject(Payload) : "", Encoding.UTF8);
             });
-            return new RequestHandler(matcher, responder, id: RuleId);
+            return new RequestHandler(matcher, responder, priority: Priority, id: RuleId);
         }
 
         public IRuleBuildable WithId(string ruleId)

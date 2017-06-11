@@ -37,5 +37,16 @@ namespace Amockibia.Test.Core
             (await client.GetAsync("")).StatusCode.Should().Be(HttpStatusCode.OK);
             (await client.GetAsync("")).StatusCode.Should().Be(HttpStatusCode.NoContent);
         }
+        
+        [Fact]
+        public async Task should_match_first_rule_when_two_rules_with_same_priority_matches()
+        {
+            Server.Setup(new PriorityRuleBuilder(HttpStatusCode.OK, 1));
+            Server.Setup(new PriorityRuleBuilder(HttpStatusCode.NoContent, 1));
+
+            var client = SelectHttpClient(true);
+
+            (await client.GetAsync("")).StatusCode.Should().Be(HttpStatusCode.OK);
+        }
     }
 }

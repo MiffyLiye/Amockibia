@@ -57,5 +57,11 @@ namespace Amockibia.Extensions
             builder.ExtraHeaders.Add(new KeyValuePair<string, string>(key, value));
             return builder;
         }
+
+        public static RuleBuilder WithPriority(this RuleBuilder builder, int priority)
+        {
+            builder.Priority = priority;
+            return builder;
+        }
     }
 }
