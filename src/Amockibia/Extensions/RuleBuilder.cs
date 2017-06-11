@@ -22,11 +22,14 @@ namespace Amockibia.Extensions
         public object Payload { get; set; }
         public List<KeyValuePair<string, string>> ExtraHeaders { get; set; }
         public int Priority { get; set; }
+        public int MatchTimeUntilExpire { get; set; }
 
         public RuleBuilder()
         {
             HttpStatusCode = HttpStatusCode.OK;
             ExtraHeaders = new List<KeyValuePair<string, string>>();
+            Priority = 0;
+            MatchTimeUntilExpire = -1;
         }
         
         public RequestHandler Build(string serverId)
@@ -42,7 +45,7 @@ namespace Amockibia.Extensions
                 }
                 await response.WriteAsync(Payload != null ? JsonConvert.SerializeObject(Payload) : "", Encoding.UTF8);
             });
-            return new RequestHandler(matcher, responder, priority: Priority, id: RuleId);
+            return new RequestHandler(matcher, responder, Priority, MatchTimeUntilExpire, RuleId);
         }
 
         public IRuleBuildable WithId(string ruleId)

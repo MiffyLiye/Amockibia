@@ -63,5 +63,11 @@ namespace Amockibia.Extensions
             builder.Priority = priority;
             return builder;
         }
+        
+        public static RuleBuilder WithMatchTimesUntilExpire(this RuleBuilder builder, int matchTimesUntilExpire)
+        {
+            builder.MatchTimeUntilExpire = matchTimesUntilExpire;
+            return builder;
+        }
     }
 }

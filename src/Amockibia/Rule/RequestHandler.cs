@@ -19,26 +19,26 @@ namespace Amockibia.Rule
         /// <summary>
         /// Times it can respond to matched requests before this rule get expired. -1 means infinite.
         /// </summary>
-        public int RemainingRespondTimes { get; private set; }
+        public int MatchTimesUntilExpire { get; private set; }
 
-        public RequestHandler(IRequestMatchable requestMatcher, IRequestRespondable responder, int priority = 100, int remainingRespondTimes = -1, string id = null)
+        public RequestHandler(IRequestMatchable requestMatcher, IRequestRespondable responder, int priority = 100, int matchTimesUntilExpire = -1, string id = null)
         {
             HandledRequests = new List<HttpRequest>();
             Matcher = requestMatcher;
             Responder = responder;
             Priority = priority;
-            RemainingRespondTimes = remainingRespondTimes;
+            MatchTimesUntilExpire = matchTimesUntilExpire;
             Id = id;
         }
 
         public bool Alive()
         {
-            return RemainingRespondTimes != 0;
+            return MatchTimesUntilExpire != 0;
         }
 
         public void Reserve()
         {
-            RemainingRespondTimes -= RemainingRespondTimes == -1 ? 0 : 1;
+            MatchTimesUntilExpire -= MatchTimesUntilExpire == -1 ? 0 : 1;
         }
 
         /// <summary>

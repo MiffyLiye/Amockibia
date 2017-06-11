@@ -10,7 +10,7 @@ using Xunit;
 
 namespace Amockibia.Test.Core
 {
-    public class RemainingRespondTimesTest : TestBase
+    public class MatchTimesUntilExpireTest : TestBase
     {
         private class LimitedTimesOKRuleBuilder : IRuleBuildable
         {
@@ -21,7 +21,7 @@ namespace Amockibia.Test.Core
             }
             public RequestHandler Build(string serverId)
             {
-                return new RequestHandler(new AlwaysMatchMatcher(), new StatusCodeOnlyResponder(HttpStatusCode.OK), remainingRespondTimes: Limit);
+                return new RequestHandler(new AlwaysMatchMatcher(), new StatusCodeOnlyResponder(HttpStatusCode.OK), matchTimesUntilExpire: Limit);
             }
         }
 

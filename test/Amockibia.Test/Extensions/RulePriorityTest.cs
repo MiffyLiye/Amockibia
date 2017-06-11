@@ -1,6 +1,4 @@
-﻿using System.Net;
-using System.Net.Http;
-using System.Reflection;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using Amockibia.Extensions;
 using Amockibia.Setup;
