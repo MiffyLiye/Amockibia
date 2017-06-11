@@ -29,7 +29,6 @@ namespace Amockibia.Test.Extensions
             Server.Setup(When.Receive(httpMethod, "stub-uri").SendOK());
 
             var response = await Client.SendAsync(new HttpRequestMessage(httpMethod, "stub-uri"));
-
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
         
@@ -44,7 +43,6 @@ namespace Amockibia.Test.Extensions
 
             var httpMethod = ToHttpMethod(httpMethodName);
             var response = await Client.SendAsync(new HttpRequestMessage(httpMethod, "stub-uri"));
-
             response.StatusCode.Should().Be(HttpStatusCode.NotImplemented);
         }
 

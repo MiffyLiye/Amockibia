@@ -37,8 +37,8 @@ namespace Amockibia.Test.Extensions
         public async Task should_send_body(string value)
         {
             Server.Setup(When.Get("stub-uri").SendOK().WithPayloadObject(new {Value = value}));
+            
             var response = await Client.GetAsync("stub-uri");
-
             var payload = await response.Content.ReadAsAnonymousTypeAsync(new {Value = default(string)});
             payload.Value.Should().Be(value);
         }
@@ -52,8 +52,8 @@ namespace Amockibia.Test.Extensions
                 .Send(HttpStatusCode.Created)
                 .WithHeader("Location", location)
                 .WithHeader("CustomKey", "custom value"));
+            
             var response = await Client.PostAsync("stub-uri", null);
-
             response.Headers.Location.Should().Be(location);
             response.Headers.GetValues("CustomKey").Single().Should().Be("custom value");
         }

@@ -25,8 +25,8 @@ namespace Amockibia.Test.Extensions
         {
             Server.Setup(When.Get("stub-uri").SendOK().WithPayloadObject("first").WithPriority(firstPriority));
             Server.Setup(When.Get("stub-uri").SendOK().WithPayloadObject("last").WithPriority(lastPriority));
+            
             var response = await Client.GetAsync("stub-uri");
-
             var payload = await response.Content.ReadAsAsync<string>();
             payload.Should().Be(expected);
         }

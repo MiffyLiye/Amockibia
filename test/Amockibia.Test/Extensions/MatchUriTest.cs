@@ -23,7 +23,6 @@ namespace Amockibia.Test.Extensions
             Server.Setup(When.Get("relative-stub-uri").SendOK());
 
             var response = await Client.GetAsync("relative-stub-uri");
-
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
@@ -33,7 +32,6 @@ namespace Amockibia.Test.Extensions
             Server.Setup(When.Get("relative-stub-uri").SendOK());
 
             var response = await Client.GetAsync($"{Server.BaseAddress}relative-stub-uri");
-
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
@@ -46,7 +44,6 @@ namespace Amockibia.Test.Extensions
             Server.Setup(When.Get("stub-uri").SendOK());
 
             var response = await Client.GetAsync($"stub-uri?{query}");
-
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
@@ -59,7 +56,6 @@ namespace Amockibia.Test.Extensions
             Server.Setup(When.Get("stub-uri").SendOK());
 
             var response = await Client.GetAsync($"stub-uri#{hash}");
-
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
@@ -73,17 +69,6 @@ namespace Amockibia.Test.Extensions
             Server.Setup(When.Get("stub-uri").SendOK());
 
             var response = await Client.GetAsync(uri);
-
-            response.StatusCode.Should().Be(HttpStatusCode.NotImplemented);
-        }
-
-        [Fact]
-        public async Task should_not_match_different_http_method()
-        {
-            Server.Setup(When.Get("stub-uri").SendOK());
-
-            var response = await Client.PostAsync("stub-uri", null);
-
             response.StatusCode.Should().Be(HttpStatusCode.NotImplemented);
         }
     }
