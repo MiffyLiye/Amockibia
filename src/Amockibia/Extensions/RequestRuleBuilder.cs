@@ -5,10 +5,10 @@ namespace Amockibia.Extensions
 {
     public class RequestRuleBuilder : RuleBuilder
     {
-        public RequestRuleBuilder(HttpMethod httpMethod, string relativeUri)
+        public RequestRuleBuilder(HttpMethod httpMethod, string uri)
         {
             HttpMethod = httpMethod;
-            RelativeUri = relativeUri;
+            Uri = uri;
         }
 
         public ResponseRuleBuilder Send(HttpStatusCode httpStatusCode)

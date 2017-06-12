@@ -13,7 +13,7 @@ namespace Amockibia.Extensions
     public abstract class RuleBuilder
     {
         protected HttpMethod HttpMethod { get; set; }
-        protected string RelativeUri { get; set; }
+        protected string Uri { get; set; }
 
         protected HttpStatusCode HttpStatusCode { get; set; }
         protected object Payload { get; set; }
@@ -26,7 +26,7 @@ namespace Amockibia.Extensions
         protected RuleBuilder(RuleBuilder builder)
         {
             HttpMethod = builder.HttpMethod;
-            RelativeUri = builder.RelativeUri;
+            Uri = builder.Uri;
             
             HttpStatusCode = builder.HttpStatusCode;
             Payload = builder.Payload;
@@ -47,7 +47,7 @@ namespace Amockibia.Extensions
 
         protected RequestHandler BuildRule(string serverId)
         {
-            var matcher = new UriMatcher(serverId,  HttpMethod, RelativeUri);
+            var matcher = new UriMatcher(serverId,  HttpMethod, Uri);
             var responder = new RequestResponder(async response =>
             {
                 response.StatusCode = (int) HttpStatusCode;

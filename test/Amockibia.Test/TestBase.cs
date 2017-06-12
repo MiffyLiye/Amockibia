@@ -5,20 +5,27 @@ namespace Amockibia.Test
 {
     public abstract class TestBase
     {
-        private static object Locker = new object();
-        private static int NextPortNumber = 4000;
+        private static object Locker { get; } = new object();
+        private static int NextPortNumber { get; set; } = 4000;
         private Uri BaseAddress { get; }
         protected AmockibiaServer Server { get; }
         private Lazy<HttpClient> InMemoryClient { get; }
         private Lazy<HttpClient> SelfHostClient { get; }
 
-        public TestBase(string baseRelativeUrl = "")
+        protected TestBase(string baseUrl = "")
         {
-            baseRelativeUrl = baseRelativeUrl.StartsWith("/") ? baseRelativeUrl : "/" + baseRelativeUrl;
-            lock (Locker)
+            if (Uri.IsWellFormedUriString(baseUrl, UriKind.Absolute))
             {
-                BaseAddress = new Uri($"http://localhost:{NextPortNumber}/{baseRelativeUrl}");
-                NextPortNumber += 1;
+                BaseAddress = new Uri(baseUrl);
+            }
+            else
+            {
+                baseUrl = baseUrl.StartsWith("/") ? baseUrl : "/" + baseUrl;
+                lock (Locker)
+                {
+                    BaseAddress = new Uri($"http://localhost:{NextPortNumber}/{baseUrl}");
+                    NextPortNumber += 1;
+                }
             }
             Server = new AmockibiaServer(BaseAddress);
             InMemoryClient = new Lazy<HttpClient>(() => Server.CreateInMemoryClient());

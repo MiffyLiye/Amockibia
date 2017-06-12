@@ -12,17 +12,23 @@ namespace Amockibia.Extensions.Matcher
     {
         private HttpMethod HttpMethod { get; }
         private Uri ExpectedUri { get; }
+        private bool IsAbsolute { get; }
 
-        public UriMatcher(string serverId, HttpMethod httpMethod, string relativeUri)
+        public UriMatcher(string serverId, HttpMethod httpMethod, string uri)
         {
             HttpMethod = httpMethod;
             var baseUri = serverId.GetConfig().Server.BaseAddress;
-            ExpectedUri = new Uri(baseUri, relativeUri);
+            IsAbsolute = Uri.IsWellFormedUriString(uri, UriKind.Absolute);
+            ExpectedUri = IsAbsolute
+                ? new Uri(uri)
+                : new Uri(baseUri, uri);
         }
 
         public bool Matches(HttpRequest request)
         {
             if (request.Method != HttpMethod.ToString()) return false;
+            if (IsAbsolute && request.Host.Host != ExpectedUri.Host) return false;
+            if (IsAbsolute && request.Scheme != ExpectedUri.Scheme) return false;
             if (request.Path != ExpectedUri.AbsolutePath) return false;
             var queries = QueryHelpers.ParseQuery(ExpectedUri.Query);
 
