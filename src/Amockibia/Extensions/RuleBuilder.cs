@@ -5,34 +5,47 @@ using System.Text;
 using Amockibia.Extensions.Matcher;
 using Amockibia.Extensions.Responder;
 using Amockibia.Rule;
-using Amockibia.Rule.Builder;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
 namespace Amockibia.Extensions
 {
-    public class RuleBuilder : IRuleBuildable
+    public abstract class RuleBuilder
     {
+        protected HttpMethod HttpMethod { get; set; }
+        protected string RelativeUri { get; set; }
 
-        public HttpMethod HttpMethod { get; set; }
-        public string RelativeUri { get; set; }
-        public string RuleId { get; private set; }
-        
-        public HttpStatusCode HttpStatusCode { get; set; }
-        public object Payload { get; set; }
-        public List<KeyValuePair<string, string>> ExtraHeaders { get; set; }
-        public int Priority { get; set; }
-        public int MatchTimeUntilExpire { get; set; }
+        protected HttpStatusCode HttpStatusCode { get; set; }
+        protected object Payload { get; set; }
+        protected List<KeyValuePair<string, string>> ExtraHeaders { get; set; }
+        protected int Priority { get; set; }
+        protected int MatchTimeUntilExpire { get; set; }
 
-        public RuleBuilder()
+        protected string RuleId { get; set; }
+
+        protected RuleBuilder(RuleBuilder builder)
+        {
+            HttpMethod = builder.HttpMethod;
+            RelativeUri = builder.RelativeUri;
+
+            HttpStatusCode = builder.HttpStatusCode;
+            Payload = builder.Payload;
+            ExtraHeaders = builder.ExtraHeaders;
+            
+            Priority = builder.Priority;
+            MatchTimeUntilExpire = builder.MatchTimeUntilExpire;
+            RuleId = builder.RuleId;
+        }
+
+        protected RuleBuilder()
         {
             HttpStatusCode = HttpStatusCode.OK;
             ExtraHeaders = new List<KeyValuePair<string, string>>();
             Priority = 0;
             MatchTimeUntilExpire = -1;
         }
-        
-        public RequestHandler Build(string serverId)
+
+        protected RequestHandler BuildRule(string serverId)
         {
             var matcher = new UriMatcher(serverId,  HttpMethod, RelativeUri);
             var responder = new RequestResponder(async response =>
@@ -46,12 +59,6 @@ namespace Amockibia.Extensions
                 await response.WriteAsync(Payload != null ? JsonConvert.SerializeObject(Payload) : "", Encoding.UTF8);
             });
             return new RequestHandler(matcher, responder, Priority, MatchTimeUntilExpire, RuleId);
-        }
-
-        public IRuleBuildable WithId(string ruleId)
-        {
-            RuleId = ruleId;
-            return this;
         }
     }
 }
