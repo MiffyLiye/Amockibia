@@ -27,7 +27,7 @@ namespace Amockibia.Extensions
         {
             HttpMethod = builder.HttpMethod;
             RelativeUri = builder.RelativeUri;
-
+            
             HttpStatusCode = builder.HttpStatusCode;
             Payload = builder.Payload;
             ExtraHeaders = builder.ExtraHeaders;

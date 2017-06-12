@@ -10,7 +10,7 @@ namespace Amockibia.Extensions
             HttpMethod = httpMethod;
             RelativeUri = relativeUri;
         }
-        
+
         public ResponseRuleBuilder Send(HttpStatusCode httpStatusCode)
         {
             HttpStatusCode = httpStatusCode;
