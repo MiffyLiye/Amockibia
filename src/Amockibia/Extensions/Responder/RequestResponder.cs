@@ -8,6 +8,7 @@ namespace Amockibia.Extensions.Responder
     internal class RequestResponder : IRequestRespondable
     {
         private Func<HttpResponse, Task> RespondAction { get; }
+        
         public RequestResponder(Func<HttpResponse, Task> respond)
         {
             RespondAction = respond;

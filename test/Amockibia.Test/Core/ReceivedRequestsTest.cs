@@ -4,9 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
-using Amockibia.Setup;
 using Amockibia.Test.Core.Utilities;
-using Amockibia.Verify;
 using FluentAssertions;
 using Xunit;
 
@@ -40,7 +38,7 @@ namespace Amockibia.Test.Core
 
             await client.GetAsync(relativeUri);
 
-            var receivedRequests = Server.Handler(handlerId).ReceivedRequests;
+            var receivedRequests = Server.GetHandler(handlerId).ReceivedRequests;
             receivedRequests.Single().Path.ToString().Should().Be(relativeUri);
         }
 
@@ -54,7 +52,7 @@ namespace Amockibia.Test.Core
             await client.GetAsync("/first");
             await client.GetAsync("/last");
 
-            var receivedRequests = Server.Handler(handlerId).ReceivedRequests;
+            var receivedRequests = Server.GetHandler(handlerId).ReceivedRequests;
             receivedRequests.Count.Should().Be(2);
             receivedRequests.First().Path.ToString().Should().Be("/first");
             receivedRequests.Last().Path.ToString().Should().Be("/last");
@@ -70,7 +68,7 @@ namespace Amockibia.Test.Core
             await client.PostAsync("/", new StringContent("first"));
             await client.PostAsync("/", new StringContent("last"));
 
-            var receivedRequests = Server.Handler(handlerId).ReceivedRequests;
+            var receivedRequests = Server.GetHandler(handlerId).ReceivedRequests;
             receivedRequests.Count.Should().Be(2);
             (await receivedRequests.First().Body.ReadAsStringAsync()).Should().Be("first");
             (await receivedRequests.Last().Body.ReadAsStringAsync()).Should().Be("last");

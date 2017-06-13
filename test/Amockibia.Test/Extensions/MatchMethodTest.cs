@@ -3,7 +3,6 @@ using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
 using Amockibia.Extensions;
-using Amockibia.Setup;
 using FluentAssertions;
 using Xunit;
 

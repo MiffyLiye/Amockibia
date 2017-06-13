@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using Amockibia.Server;
 
 namespace Amockibia.Utilities
 {
@@ -9,7 +10,7 @@ namespace Amockibia.Utilities
 
         public static ServerConfig GetConfig(this string serverId, AmockibiaServer server = null)
         {
-            return Config.Value.GetOrAdd(serverId, (s) => new ServerConfig(server));
+            return Config.Value.GetOrAdd(serverId, s => new ServerConfig(server));
         }
 
         public static void Stop(this string serverId)

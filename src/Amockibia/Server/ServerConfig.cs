@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Amockibia.Rule;
 
-namespace Amockibia
+namespace Amockibia.Server
 {
     internal class ServerConfig
     {

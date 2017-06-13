@@ -3,7 +3,6 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Amockibia.Extensions;
-using Amockibia.Setup;
 using Amockibia.Test.Core.Utilities;
 using Amockibia.Test.Extensions.Utilities;
 using FluentAssertions;

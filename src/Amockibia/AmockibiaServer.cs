@@ -1,19 +1,21 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using System;
-using Microsoft.AspNetCore.TestHost;
+﻿using System;
+using System.Linq;
 using System.Net.Http;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.TestHost;
 using Amockibia.Utilities;
-using Amockibia.Rule.Builder;
 using Amockibia.Rule;
+using Amockibia.Rule.Builder;
+using Amockibia.Server;
 
 namespace Amockibia
 {
     public class AmockibiaServer : IDisposable
     {
-        private static object Locker { get; } = new object();
-        private static int NextId = 1;
-        public Uri BaseAddress { get; }
         public string ServerId { get; }
+        public Uri BaseAddress { get; }
+        private static object Locker { get; } = new object();
+        private static int NextId { get; set; } = 1;
         private Lazy<IWebHost> SelfHost { get; }
         private Lazy<TestServer> InMemoryHost { get; }
 
@@ -41,6 +43,16 @@ namespace Amockibia
             new TestServer(new WebHostBuilder()
                 .UseStartup(typeof(Startup))
                 .UseEnvironment(ServerId)));
+        }
+        
+        public void Setup(IRuleBuildable builder)
+        {
+            ServerId.GetConfig().Rules.Add(builder.Build(ServerId));
+        }
+        
+        public RequestHandler GetHandler(string handlerId)
+        {
+            return ServerId.GetConfig().Rules.Single(r => r.Id == handlerId);
         }
 
         public void StartSelfHost()
