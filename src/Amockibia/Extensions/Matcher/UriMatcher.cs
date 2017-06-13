@@ -27,8 +27,12 @@ namespace Amockibia.Extensions.Matcher
         public bool Matches(HttpRequest request)
         {
             if (request.Method != HttpMethod.ToString()) return false;
-            if (IsAbsolute && request.Host.Host != ExpectedUri.Host) return false;
-            if (IsAbsolute && request.Scheme != ExpectedUri.Scheme) return false;
+            if (IsAbsolute)
+            {
+                if (request.Host.Host != ExpectedUri.Host) return false;
+                if (request.Scheme != ExpectedUri.Scheme) return false;
+                if ((request.Host.Port ?? (request.Scheme == "https" ? 443 : 80)) != ExpectedUri.Port) return false;
+            }
             if (request.Path != ExpectedUri.AbsolutePath) return false;
             var queries = QueryHelpers.ParseQuery(ExpectedUri.Query);
 

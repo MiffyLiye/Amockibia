@@ -17,33 +17,37 @@ namespace Amockibia.Test.Extensions
 
         private HttpClient Client { get; }
 
-        [Fact]
-        public async Task should_match_same_absolute_uri()
+        [Theory]
+        [InlineData("http://miffyliye.org/test/", "http://miffyliye.org/test/")]
+        [InlineData("https://miffyliye.org/test/", "https://miffyliye.org/test/")]
+        [InlineData("http://miffyliye.org:8080/test/", "http://miffyliye.org:8080/test/")]
+        [InlineData("http://miffyliye.org/test/", "http://miffyliye.org:80/test/")]
+        [InlineData("http://miffyliye.org:80/test/", "http://miffyliye.org/test/")]
+        [InlineData("https://miffyliye.org/test/", "https://miffyliye.org:443/test/")]
+        [InlineData("https://miffyliye.org:443/test/", "https://miffyliye.org/test/")]
+        public async Task should_match_same_host(string stubUri, string requestUri)
         {
-            Server.Setup(When.Get("http://miffyliye.org/example").SendOK());
+            Server.Setup(When.Get(stubUri).SendOK());
 
-            var response = await Client.GetAsync("http://miffyliye.org/example");
+            var response = await Client.GetAsync(requestUri);
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
-        
-        [Fact]
-        public async Task should_not_match_different_host()
-        {
-            Server.Setup(When.Get("https://miffyliye.org/test/").SendOK());
 
-            var response = await Client.GetAsync("https://miffyliye.com/test/");
+        [Theory]
+        [InlineData("http://miffyliye.org/test/", "http://miffyliye.com/test/")]
+        [InlineData("https://miffyliye.org/test/", "https://miffyliye.com/test/")]
+        [InlineData("http://miffyliye.org/test/", "https://miffyliye.org/test/")]
+        [InlineData("http://miffyliye.org/test/", "http://miffyliye.org:8080/test/")]
+        [InlineData("http://miffyliye.org:443/test/", "https://miffyliye.org/test/")]
+        [InlineData("https://miffyliye.org/test/", "http://miffyliye.org:443/test/")]
+        public async Task should_not_match_different_host(string stubUri, string requestUri)
+        {
+            Server.Setup(When.Get(stubUri).SendOK());
+
+            var response = await Client.GetAsync(requestUri);
             response.StatusCode.Should().Be(HttpStatusCode.NotImplemented);
         }
-        
-        [Fact]
-        public async Task should_not_match_different_scheme()
-        {
-            Server.Setup(When.Get("https://miffyliye.org/test/").SendOK());
 
-            var response = await Client.GetAsync("http://miffyliye.org/test/");
-            response.StatusCode.Should().Be(HttpStatusCode.NotImplemented);
-        }
-        
         [Fact]
         public async Task should_match_multiple_hosts_in_memory_mode()
         {
