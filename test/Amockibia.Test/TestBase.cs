@@ -3,7 +3,7 @@ using System.Net.Http;
 
 namespace Amockibia.Test
 {
-    public abstract class TestBase
+    public abstract class TestBase : IDisposable
     {
         private static object Locker { get; } = new object();
         private static int NextPortNumber { get; set; } = 4000;
