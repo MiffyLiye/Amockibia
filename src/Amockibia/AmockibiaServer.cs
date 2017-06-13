@@ -1,12 +1,13 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Net.Http;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.TestHost;
-using Amockibia.Utilities;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
 using Amockibia.Server;
+using Amockibia.Utilities;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.TestHost;
 
 namespace Amockibia
 {
@@ -37,7 +38,7 @@ namespace Amockibia
                 .UseKestrel()
                 .UseStartup(typeof(Startup))
                 .UseEnvironment(ServerId)
-                .Start(new[] { BaseAddress.ToString() }));
+                .Start(BaseAddress.ToString()));
 
             InMemoryHost = new Lazy<TestServer>(() =>
             new TestServer(new WebHostBuilder()
@@ -61,6 +62,8 @@ namespace Amockibia
         }
 
         [Obsolete("Use CreateInMemoryClient() to trigger in memory host.")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [Browsable(false)]
         public void StartInMemoryHost()
         {
             InMemoryHost.Value.Ignore();

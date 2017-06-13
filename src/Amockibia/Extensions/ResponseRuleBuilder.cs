@@ -44,7 +44,7 @@ namespace Amockibia.Extensions
         [EditorBrowsable(EditorBrowsableState.Never)]
         public RequestHandler Build(string serverId)
         {
-            return base.BuildRule(serverId);
+            return BuildRule(serverId);
         }
     }
 }

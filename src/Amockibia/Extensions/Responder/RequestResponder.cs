@@ -1,7 +1,7 @@
-﻿using Amockibia.Rule;
-using Microsoft.AspNetCore.Http;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using Amockibia.Rule;
+using Microsoft.AspNetCore.Http;
 
 namespace Amockibia.Extensions.Responder
 {

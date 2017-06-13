@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Net.Http;
+using Amockibia.Rule;
+using Amockibia.Utilities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Primitives;
-using Amockibia.Rule;
-using Amockibia.Utilities;
 
 namespace Amockibia.Extensions.Matcher
 {
