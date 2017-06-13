@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -12,6 +13,7 @@ namespace Amockibia.Extensions
 {
     public abstract class RuleBuilder
     {
+        protected List<Func<HttpRequest, bool>> Predicates { get; set; }
         protected HttpMethod HttpMethod { get; set; }
         protected string Uri { get; set; }
 
@@ -25,6 +27,7 @@ namespace Amockibia.Extensions
 
         protected RuleBuilder(RuleBuilder builder)
         {
+            Predicates = builder.Predicates;
             HttpMethod = builder.HttpMethod;
             Uri = builder.Uri;
             
@@ -39,6 +42,7 @@ namespace Amockibia.Extensions
 
         protected RuleBuilder()
         {
+            Predicates = new List<Func<HttpRequest, bool>>();
             HttpStatusCode = HttpStatusCode.OK;
             ExtraHeaders = new List<KeyValuePair<string, string>>();
             Priority = 0;
@@ -47,7 +51,7 @@ namespace Amockibia.Extensions
 
         protected RequestHandler BuildRule(string serverId)
         {
-            var matcher = new UriMatcher(serverId,  HttpMethod, Uri);
+            var matcher = new RequestMatcher(serverId, Predicates, HttpMethod, Uri);
             var responder = new RequestResponder(async response =>
             {
                 response.StatusCode = (int) HttpStatusCode;

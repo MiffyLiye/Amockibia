@@ -38,5 +38,29 @@ namespace Amockibia.Test.Extensions
             var secondPayload = await secondResponse.Content.ReadAsAsync<string>();
             secondPayload.Should().Be("last");
         }
+    
+        [Fact]
+        public async Task should_not_expire_when_matched_times_not_reaches_available_matches_times()
+        {
+            Server.Setup(When.Get("stub-uri")
+                .SendOK()
+                .WithPayloadObject("1-2")
+                .WithMatchTimesUntilExpire(2)
+                .WithPriority(0));
+            Server.Setup(When.Get("stub-uri")
+                .SendOK()
+                .WithPayloadObject("3")
+                .WithMatchTimesUntilExpire(1)
+                .WithPriority(1));
+            
+            var firstResponse = await Client.GetAsync("stub-uri");
+            var firstPayload = await firstResponse.Content.ReadAsAsync<string>();
+            firstPayload.Should().Be("1-2");
+            
+            var secondResponse = await Client.GetAsync("stub-uri");
+            var secondPayload = await secondResponse.Content.ReadAsAsync<string>();
+            secondPayload.Should().Be("1-2");
+        }
+    
     }
 }

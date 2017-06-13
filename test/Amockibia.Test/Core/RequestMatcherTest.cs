@@ -10,7 +10,7 @@ using Xunit;
 
 namespace Amockibia.Test.Core
 {
-    public class Example : TestBase
+    public class RequestMatcherTest : TestBase
     {
         private class HttpMethodMatcher : IRequestMatchable
         {

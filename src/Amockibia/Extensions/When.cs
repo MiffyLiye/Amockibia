@@ -1,9 +1,16 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
+using Microsoft.AspNetCore.Http;
 
 namespace Amockibia.Extensions
 {
     public class When
     {
+        public static RequestRuleBuilder Receive(Func<HttpRequest, bool> predicate)
+        {
+            return new RequestRuleBuilder(predicate);
+        }
+
         public static RequestRuleBuilder Receive(HttpMethod httpMethod, string uri)
         {
             return new RequestRuleBuilder(httpMethod, uri);
