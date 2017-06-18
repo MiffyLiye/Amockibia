@@ -79,6 +79,8 @@ namespace Amockibia.Test.Extensions
             var message = "window.start = new Date()";
             var messageBody = new MemoryStream(Encoding.UTF8.GetBytes(message));
             var messageMd5 = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(message));
+            var expires = new DateTimeOffset(2012, 12, 31, 12, 0, 0, TimeSpan.FromMinutes(0));
+            var lastModified = new DateTimeOffset(2012, 12, 31, 10, 0, 0, TimeSpan.FromMinutes(0));
             Server.Setup(When.Get("script")
                 .Send(HttpStatusCode.OK)
                 .WithHeader(HeaderNames.Allow, "GET, HEAD")
@@ -89,8 +91,8 @@ namespace Amockibia.Test.Extensions
                 .WithHeader(HeaderNames.ContentMD5, BitConverter.ToString(messageMd5).Replace("-", string.Empty))
                 .WithHeader(HeaderNames.ContentRange, $"bytes 0-{messageBody.Length}/{messageBody.Length}")
                 .WithHeader(HeaderNames.ContentType, "application/javascript")
-                .WithHeader(HeaderNames.Expires, "Mon, 31 Dec 2012 12:00:00 UTC")
-                .WithHeader(HeaderNames.LastModified, "Mon, 31 Dec 2012 10:00:00 UTC")
+                .WithHeader(HeaderNames.Expires, expires.ToString("R"))
+                .WithHeader(HeaderNames.LastModified, lastModified.ToString("R"))
                 .WithBody(messageBody));
 
             var response = await Client.GetAsync("script");
@@ -113,10 +115,10 @@ namespace Amockibia.Test.Extensions
             //    .Should().Equal(messageMd5);
             // entityHeaders.ContentRange
             //    .Should().Be(new ContentRangeHeaderValue(0, messageBody.Length, messageBody.Length));
-            // entityHeaders.Expires
-            //    .Should().Be(new DateTimeOffset(new DateTime(2012, 12, 31, 12, 0, 0), TimeSpan.FromMinutes(0)));
-            // entityHeaders.LastModified
-            //    .Should().Be(new DateTimeOffset(new DateTime(2012, 12, 31, 10, 0, 0), TimeSpan.FromMinutes(0)));
+             entityHeaders.Expires
+                .Should().Be(expires);
+             entityHeaders.LastModified
+                .Should().Be(lastModified);
             var script = await response.Content.ReadAsStringAsync();
             script.Should().Be(message);
         }

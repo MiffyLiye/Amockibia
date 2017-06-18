@@ -74,12 +74,6 @@ namespace Amockibia.Extensions
                     // else if (extraHeader.Key == HeaderNames.ContentRange)
                     // {
                     // }
-                    // else if (extraHeader.Key == HeaderNames.Expires)
-                    // {
-                    // }
-                    // else if (extraHeader.Key == HeaderNames.LastModified)
-                    // {
-                    // }
                     else
                     {
                         response.Headers.Add(extraHeader.Key, extraHeader.Value);
