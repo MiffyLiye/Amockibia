@@ -12,6 +12,23 @@
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <Title>Amockibia</Title>
+    <Authors>MiffyLiye</Authors>
+    <Owners>MiffyLiye</Owners>
+    <Summary>A hybrid HTTP mock library.</Summary>
+    <PackageProjectUrl>https://github.com/MiffyLiye/Amockibia</PackageProjectUrl>
+    <RepositoryUrl>git@github.com:MiffyLiye/Amockibia.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>http test stub mock spy rest restful api</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <NeutralLanguage />
+    <PackageReleaseNotes>A minimum viable product release.</PackageReleaseNotes>
+    <Version>1.1.0</Version>
+    <Description>A hybrid HTTP mock library that can start both in memory server and self host server.
+The core facilities can make complex things possible, and the extensions can make simple things simple.
+Usages can be found in project test cases.</Description>
+    <Copyright>Copyright © 2017 MiffyLiye.</Copyright>
+    <PackageLicenseUrl>https://github.com/MiffyLiye/Amockibia/blob/master/LICENSE.txt</PackageLicenseUrl>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="1.1.1" />
