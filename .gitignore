@@ -243,3 +243,6 @@ ModelManifest.xml
 
 .idea/
 .vscode/
+
+tools/
+coverage.xml

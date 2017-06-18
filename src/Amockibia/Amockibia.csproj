@@ -3,6 +3,7 @@
     <TargetFramework>netcoreapp1.0</TargetFramework>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <PreserveCompilationContext>true</PreserveCompilationContext>
+    <DebugType>full</DebugType>
     <AssemblyName>Amockibia</AssemblyName>
     <OutputType>Library</OutputType>
     <PackageId>Amockibia</PackageId>
