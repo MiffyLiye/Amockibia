@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -7,6 +8,7 @@ using Amockibia.Extensions.Matcher;
 using Amockibia.Extensions.Responder;
 using Amockibia.Rule;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Net.Http.Headers;
 using Newtonsoft.Json;
 
 namespace Amockibia.Extensions
@@ -20,6 +22,8 @@ namespace Amockibia.Extensions
         protected HttpStatusCode HttpStatusCode { get; set; }
         protected object Payload { get; set; }
         protected List<KeyValuePair<string, string>> ExtraHeaders { get; set; }
+        protected Stream Body { get; set; }
+
         protected int Priority { get; set; }
         protected int MatchTimeUntilExpire { get; set; }
 
@@ -30,11 +34,12 @@ namespace Amockibia.Extensions
             Predicates = builder.Predicates;
             HttpMethod = builder.HttpMethod;
             Uri = builder.Uri;
-            
+
             HttpStatusCode = builder.HttpStatusCode;
             Payload = builder.Payload;
             ExtraHeaders = builder.ExtraHeaders;
-            
+            Body = builder.Body;
+
             Priority = builder.Priority;
             MatchTimeUntilExpire = builder.MatchTimeUntilExpire;
             RuleId = builder.RuleId;
@@ -54,13 +59,41 @@ namespace Amockibia.Extensions
             var matcher = new RequestMatcher(serverId, Predicates, HttpMethod, Uri);
             var responder = new RequestResponder(async response =>
             {
-                response.StatusCode = (int) HttpStatusCode;
                 response.ContentType = "application/json; charset=utf-8";
+                response.StatusCode = (int)HttpStatusCode;
                 foreach (var extraHeader in ExtraHeaders)
                 {
-                    response.Headers.Add(extraHeader.Key, extraHeader.Value);
+                    if (extraHeader.Key == HeaderNames.ContentType)
+                    {
+                        response.ContentType = extraHeader.Value;
+                    }
+                    else if (extraHeader.Key == HeaderNames.ContentMD5)
+                    {
+                        response.Headers.Add(extraHeader.Key, extraHeader.Value);
+                    }
+                    // else if (extraHeader.Key == HeaderNames.ContentRange)
+                    // {
+                    // }
+                    // else if (extraHeader.Key == HeaderNames.Expires)
+                    // {
+                    // }
+                    // else if (extraHeader.Key == HeaderNames.LastModified)
+                    // {
+                    // }
+                    else
+                    {
+                        response.Headers.Add(extraHeader.Key, extraHeader.Value);
+                    }
                 }
-                await response.WriteAsync(Payload != null ? JsonConvert.SerializeObject(Payload) : "", Encoding.UTF8);
+
+                if (Body != null)
+                {
+                    await Body.CopyToAsync(response.Body);
+                }
+                else
+                {
+                    await response.WriteAsync(Payload != null ? JsonConvert.SerializeObject(Payload) : "", Encoding.UTF8);
+                }
             });
             return new RequestHandler(matcher, responder, Priority, MatchTimeUntilExpire, RuleId);
         }

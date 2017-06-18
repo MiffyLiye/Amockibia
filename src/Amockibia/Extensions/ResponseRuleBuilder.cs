@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
 
@@ -20,6 +21,12 @@ namespace Amockibia.Extensions
         public ResponseRuleBuilder WithHeader(string key, string value)
         {
             ExtraHeaders.Add(new KeyValuePair<string, string>(key, value));
+            return this;
+        }
+
+        public ResponseRuleBuilder WithBody(Stream body)
+        {
+            Body = body;
             return this;
         }
 
