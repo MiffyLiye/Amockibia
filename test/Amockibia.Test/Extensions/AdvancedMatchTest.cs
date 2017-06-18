@@ -25,8 +25,7 @@ namespace Amockibia.Test.Extensions
         public async Task should_match_with_advanced_predicate(string actualAuthKey, HttpStatusCode statusCode)
         {
             Server.Setup(When.Receive(r => {
-                var value = default(StringValues);
-                var hasHeader = r.Headers.TryGetValue("AuthKey", out value);
+                var hasHeader = r.Headers.TryGetValue("AuthKey", out StringValues value);
                 return hasHeader && value.Count == 1 && value.First() == "secret_key";
             }).SendOK());
 
@@ -45,8 +44,7 @@ namespace Amockibia.Test.Extensions
         public async Task should_match_with_primary_predicate_and_advanced_predicate(string relativeUri, HttpStatusCode statusCode)
         {
             Server.Setup(When.Put("/advanced").WithRequest(r => {
-                var authKey = default(StringValues);
-                var hasHeader = r.Headers.TryGetValue("AuthKey", out authKey);
+                var hasHeader = r.Headers.TryGetValue("AuthKey", out StringValues authKey);
                 return hasHeader && authKey.Count == 1 && authKey.First() == "secret_key";
             }).SendOK());
 
@@ -68,13 +66,11 @@ namespace Amockibia.Test.Extensions
         {
             Server.Setup(When.Get("/advanced")
                 .WithRequest(r => {
-                    var authKey = default(StringValues);
-                    var hasHeader = r.Headers.TryGetValue("AuthKey", out authKey);
+                    var hasHeader = r.Headers.TryGetValue("AuthKey", out StringValues authKey);
                     return hasHeader && authKey.Count == 1 && authKey.First() == "secret_key";
                 })
                 .WithRequest(r => {
-                    var id = default(StringValues);
-                    var hasHeader = r.Headers.TryGetValue("Id", out id);
+                    var hasHeader = r.Headers.TryGetValue("Id", out StringValues id);
                     return hasHeader && id.Count == 1 && id.First() == "MiffyLiye";
                 })
                 .SendOK());

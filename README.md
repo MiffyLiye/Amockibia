@@ -1,5 +1,6 @@
 # Amockibia
 [![Build status](https://ci.appveyor.com/api/projects/status/ye6q2mr0xwo7h497/branch/master?svg=true)](https://ci.appveyor.com/project/MiffyLiye/amockibia/branch/master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/153643f05a9b44f8a681aa683304180b)](https://www.codacy.com/app/miffyliye/Amockibia?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MiffyLiye/Amockibia&amp;utm_campaign=Badge_Grade)
 
 A hybrid HTTP mock library that can start both in memory server and self host server.
 

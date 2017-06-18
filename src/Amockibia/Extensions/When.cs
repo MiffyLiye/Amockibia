@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Amockibia.Extensions
 {
-    public class When
+    public static class When
     {
         public static RequestRuleBuilder Receive(Func<HttpRequest, bool> predicate)
         {

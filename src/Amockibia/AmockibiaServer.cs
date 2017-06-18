@@ -79,8 +79,14 @@ namespace Amockibia
 
         public void Dispose()
         {
-            if (SelfHost.IsValueCreated) SelfHost.Value.Dispose();
-            if (InMemoryHost.IsValueCreated) InMemoryHost.Value.Dispose();
+            if (SelfHost.IsValueCreated)
+            {
+                SelfHost.Value.Dispose();
+            }
+            if (InMemoryHost.IsValueCreated)
+            {
+                InMemoryHost.Value.Dispose();
+            }
             ServerId.Stop();
         }
     }

@@ -20,10 +20,10 @@ namespace Amockibia.Test
             }
             else
             {
-                baseUrl = baseUrl.StartsWith("/") ? baseUrl : "/" + baseUrl;
+                var normalizedRelativeBaseUrl = baseUrl.StartsWith("/") ? baseUrl : "/" + baseUrl;
                 lock (Locker)
                 {
-                    BaseAddress = new Uri($"http://localhost:{NextPortNumber}/{baseUrl}");
+                    BaseAddress = new Uri($"http://localhost:{NextPortNumber}/{normalizedRelativeBaseUrl}");
                     NextPortNumber += 1;
                 }
             }
@@ -34,8 +34,14 @@ namespace Amockibia.Test
 
         public void Dispose()
         {
-            if (InMemoryClient.IsValueCreated) InMemoryClient.Value.Dispose();
-            if (SelfHostClient.IsValueCreated) SelfHostClient.Value.Dispose();
+            if (InMemoryClient.IsValueCreated)
+            {
+                InMemoryClient.Value.Dispose();
+            }
+            if (SelfHostClient.IsValueCreated)
+            {
+                SelfHostClient.Value.Dispose();
+            }
             Server.Dispose();
         }
 

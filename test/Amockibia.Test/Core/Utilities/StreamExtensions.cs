@@ -10,14 +10,14 @@ namespace Amockibia.Test.Core.Utilities
         {
             var streamReader = new StreamReader(stream);
             streamReader.BaseStream.Position = 0;
-            return await streamReader.ReadToEndAsync();
+            return await streamReader.ReadToEndAsync().ConfigureAwait(false);
         }
         
         public static async Task<T> ReadAsAsync<T>(this Stream stream)
         {
             var streamReader = new StreamReader(stream);
             streamReader.BaseStream.Position = 0;
-            var value = await streamReader.ReadToEndAsync();
+            var value = await streamReader.ReadToEndAsync().ConfigureAwait(false);
             return JsonConvert.DeserializeObject<T>(value);
         }
         
@@ -25,7 +25,7 @@ namespace Amockibia.Test.Core.Utilities
         {
             var streamReader = new StreamReader(stream);
             streamReader.BaseStream.Position = 0;
-            var value = await streamReader.ReadToEndAsync();
+            var value = await streamReader.ReadToEndAsync().ConfigureAwait(false);
             return JsonConvert.DeserializeObject<T>(value);
         }
     }

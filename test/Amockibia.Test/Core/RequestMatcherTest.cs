@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
 using Amockibia.Test.Core.Utilities;
+using Amockibia.Utilities;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Xunit;
@@ -16,7 +17,7 @@ namespace Amockibia.Test.Core
         {
             private HttpMethod Method { get; }
 
-            public HttpMethodMatcher(string serverId, HttpMethod method)
+            public HttpMethodMatcher(HttpMethod method)
             {
                 Method = method;
             }
@@ -36,7 +37,8 @@ namespace Amockibia.Test.Core
             }
             public RequestHandler Build(string serverId)
             {
-                return new RequestHandler(new HttpMethodMatcher(serverId, Method), new StatusCodeOnlyResponder(HttpStatusCode.OK));
+                serverId.Ignore();
+                return new RequestHandler(new HttpMethodMatcher(Method), new StatusCodeOnlyResponder(HttpStatusCode.OK));
             }
         }
 

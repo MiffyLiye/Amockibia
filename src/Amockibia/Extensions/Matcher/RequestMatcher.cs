@@ -30,25 +30,49 @@ namespace Amockibia.Extensions.Matcher
 
         public bool Matches(HttpRequest request)
         {
-            if (Predicates.Any(p => !p(request))) return false;
-            if (HttpMethod != null && request.Method != HttpMethod.ToString()) return false;
+            if (Predicates.Any(p => !p(request)))
+            {
+                return false;
+            }
+            if (HttpMethod != null && request.Method != HttpMethod.ToString())
+            {
+                return false;
+            }
             if (ExpectedUri != null)
             {
                 if (IsAbsolute)
                 {
-                    if (request.Host.Host != ExpectedUri.Host) return false;
-                    if (request.Scheme != ExpectedUri.Scheme) return false;
-                    if ((request.Host.Port ?? (request.Scheme == "https" ? 443 : 80)) != ExpectedUri.Port) return false;
+                    if (request.Host.Host != ExpectedUri.Host)
+                    {
+                        return false;
+                    }
+                    if (request.Scheme != ExpectedUri.Scheme)
+                    {
+                        return false;
+                    }
+                    if ((request.Host.Port ?? (request.Scheme == "https" ? 443 : 80)) != ExpectedUri.Port)
+                    {
+                        return false;
+                    }
                 }
-                if (request.Path != ExpectedUri.AbsolutePath) return false;
+                if (request.Path != ExpectedUri.AbsolutePath)
+                {
+                    return false;
+                }
 
                 var queries = QueryHelpers.ParseQuery(ExpectedUri.Query);
 
                 foreach (var query in queries)
                 {
                     StringValues value;
-                    if (!request.Query.TryGetValue(query.Key, out value)) return false;
-                    if (!query.Value.Equals(value)) return false;
+                    if (!request.Query.TryGetValue(query.Key, out value))
+                    {
+                        return false;
+                    }
+                    if (!query.Value.Equals(value))
+                    {
+                        return false;
+                    }
                 }
             }
 

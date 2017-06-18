@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
 using Amockibia.Test.Core.Utilities;
+using Amockibia.Utilities;
 using FluentAssertions;
 using Xunit;
 
@@ -20,6 +21,7 @@ namespace Amockibia.Test.Core
             }
             public RequestHandler Build(string serverId)
             {
+                serverId.Ignore();
                 return new RequestHandler(new AlwaysMatchMatcher(), new StatusCodeOnlyResponder(HttpStatusCode.OK), matchTimesUntilExpire: Limit);
             }
         }

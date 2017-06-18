@@ -63,7 +63,6 @@ namespace Amockibia.Extensions
                 foreach (var extraHeader in ExtraHeaders)
                 {
                     response.Headers.Append(extraHeader.Key, extraHeader.Value);
-                    //response.Headers[extraHeader.Key] = extraHeader.Value;
                 }
                 if (!response.Headers.ContainsKey(HeaderNames.ContentType))
                 {
@@ -73,7 +72,7 @@ namespace Amockibia.Extensions
                 if (Body != null)
                 {
                     Body.Position = 0;
-                    await Body.CopyToAsync(response.Body);
+                    await Body.CopyToAsync(response.Body).ConfigureAwait(false);
                 }
                 else
                 {
