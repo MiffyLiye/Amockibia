@@ -59,29 +59,20 @@ namespace Amockibia.Extensions
             var matcher = new RequestMatcher(serverId, Predicates, HttpMethod, Uri);
             var responder = new RequestResponder(async response =>
             {
-                response.ContentType = "application/json; charset=utf-8";
                 response.StatusCode = (int)HttpStatusCode;
                 foreach (var extraHeader in ExtraHeaders)
                 {
-                    if (extraHeader.Key == HeaderNames.ContentType)
-                    {
-                        response.ContentType = extraHeader.Value;
-                    }
-                    else if (extraHeader.Key == HeaderNames.ContentMD5)
-                    {
-                        response.Headers.Add(extraHeader.Key, extraHeader.Value);
-                    }
-                    // else if (extraHeader.Key == HeaderNames.ContentRange)
-                    // {
-                    // }
-                    else
-                    {
-                        response.Headers.Add(extraHeader.Key, extraHeader.Value);
-                    }
+                    response.Headers.Append(extraHeader.Key, extraHeader.Value);
+                    //response.Headers[extraHeader.Key] = extraHeader.Value;
+                }
+                if (!response.Headers.ContainsKey(HeaderNames.ContentType))
+                {
+                    response.Headers[HeaderNames.ContentType] = "application/json; charset=utf-8";
                 }
 
                 if (Body != null)
                 {
+                    Body.Position = 0;
                     await Body.CopyToAsync(response.Body);
                 }
                 else

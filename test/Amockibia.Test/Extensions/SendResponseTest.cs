@@ -78,7 +78,7 @@ namespace Amockibia.Test.Extensions
         {
             var message = "window.start = new Date()";
             var messageBody = new MemoryStream(Encoding.UTF8.GetBytes(message));
-            var messageMd5 = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(message));
+            var messageMd5 = MD5.Create().ComputeHash(messageBody);
             var expires = new DateTimeOffset(2012, 12, 31, 12, 0, 0, TimeSpan.FromMinutes(0));
             var lastModified = new DateTimeOffset(2012, 12, 31, 10, 0, 0, TimeSpan.FromMinutes(0));
             Server.Setup(When.Get("script")
@@ -88,7 +88,7 @@ namespace Amockibia.Test.Extensions
                 .WithHeader(HeaderNames.ContentLanguage, "en")
                 .WithHeader(HeaderNames.ContentLength, messageBody.Length.ToString())
                 .WithHeader(HeaderNames.ContentLocation, "/script/1")
-                .WithHeader(HeaderNames.ContentMD5, BitConverter.ToString(messageMd5).Replace("-", string.Empty))
+                .WithHeader(HeaderNames.ContentMD5, Convert.ToBase64String(messageMd5))
                 .WithHeader(HeaderNames.ContentRange, $"bytes 0-{messageBody.Length}/{messageBody.Length}")
                 .WithHeader(HeaderNames.ContentType, "application/javascript")
                 .WithHeader(HeaderNames.Expires, expires.ToString("R"))
@@ -115,9 +115,9 @@ namespace Amockibia.Test.Extensions
             //    .Should().Equal(messageMd5);
             // entityHeaders.ContentRange
             //    .Should().Be(new ContentRangeHeaderValue(0, messageBody.Length, messageBody.Length));
-             entityHeaders.Expires
+            entityHeaders.Expires
                 .Should().Be(expires);
-             entityHeaders.LastModified
+            entityHeaders.LastModified
                 .Should().Be(lastModified);
             var script = await response.Content.ReadAsStringAsync();
             script.Should().Be(message);
@@ -134,6 +134,19 @@ namespace Amockibia.Test.Extensions
 
             var response = await Client.PostAsync("stub-uri", null);
             response.Headers.GetValues("Strict-Transport-Security").Single().Should().Be(customValue);
+        }
+
+        [Fact]
+        public async Task should_send_multiple_headers_with_same_key()
+        {
+            Server.Setup(When.Post("stub-uri")
+                .Send(HttpStatusCode.Created)
+                .WithHeader("Set-Cookie", "sessionToken=001")
+                .WithHeader("Set-Cookie", "culture=en"));
+
+            var response = await Client.PostAsync("stub-uri", null);
+            response.Headers.GetValues("Set-Cookie")
+                .Should().Equal(new[] { "sessionToken=001", "culture=en" });
         }
     }
 }

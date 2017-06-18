@@ -23,7 +23,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <NeutralLanguage />
     <PackageReleaseNotes>A minimum viable product release.</PackageReleaseNotes>
-    <Version>1.1.0</Version>
+    <Version>1.1.2</Version>
     <Description>A hybrid HTTP mock library that can start both in memory server and self host server.
 The core facilities can make complex things possible, and the extensions can make simple things simple.
 Usages can be found in project test cases.</Description>
