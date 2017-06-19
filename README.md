@@ -4,6 +4,7 @@
 [![Codacy branch grade](https://img.shields.io/codacy/grade/153643f05a9b44f8a681aa683304180b/master.svg?style=flat-square)](https://www.codacy.com/app/miffyliye/Amockibia?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MiffyLiye/Amockibia&amp;utm_campaign=Badge_Grade)
 [![NuGet](https://img.shields.io/nuget/v/Amockibia.svg?style=flat-square)](https://www.nuget.org/packages/Amockibia/)
 [![Libraries.io for GitHub](https://img.shields.io/librariesio/github/MiffyLiye/Amockibia.svg?style=flat-square)](https://libraries.io/github/MiffyLiye/Amockibia)
+[![Platform](http://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue.svg?style=flat-square)](http://www.microsoft.com/net/core/platform)
 
 A hybrid HTTP mock library that can start both in memory server and self host server.
 
@@ -14,11 +15,9 @@ A hybrid HTTP mock library that can start both in memory server and self host se
 * Portable to Windows, macOS, and Linux
 
 ## Status
-* It can be downloaded from [nuget.org](https://www.nuget.org/packages/Amockibia/).
-* It can run cross-platform on Windows, macOS, and Linux via .NET Core.
-* Current core facilities can make complex things possible.
-* Current extensions can make simple things simple.
-* Current extensions can make it IDE (and text editor) friendly.
+* Core facilities can make complex things possible.
+* Extensions can make simple things simple.
+* Extensions can make it IDE (and text editor) friendly.
 
 ## Usages
 See test cases.
