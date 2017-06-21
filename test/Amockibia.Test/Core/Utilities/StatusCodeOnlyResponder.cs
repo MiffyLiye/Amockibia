@@ -12,10 +12,10 @@ namespace Amockibia.Test.Core.Utilities
         {
             StatusCode = statusCode;
         }
-        public async Task Respond(HttpRequest request, HttpResponse response)
+        public Task Respond(HttpRequest request, HttpResponse response)
         {
             response.StatusCode = (int)StatusCode;
-            await response.WriteAsync("");
+            return Task.CompletedTask;
         }
     }
 }
