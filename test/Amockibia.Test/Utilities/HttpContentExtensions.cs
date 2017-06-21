@@ -2,7 +2,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Amockibia.Test.Extensions.Utilities
+namespace Amockibia.Test.Utilities
 {
     public static class HttpContentExtensions
     {

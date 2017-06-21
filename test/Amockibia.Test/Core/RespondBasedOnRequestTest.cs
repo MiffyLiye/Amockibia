@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
-using Amockibia.Test.Core.Utilities;
+using Amockibia.Test.Utilities;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Xunit;

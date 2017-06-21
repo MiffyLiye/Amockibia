@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
-using Amockibia.Test.Core.Utilities;
+using Amockibia.Test.Utilities;
 using Amockibia.Utilities;
 using FluentAssertions;
 using Xunit;

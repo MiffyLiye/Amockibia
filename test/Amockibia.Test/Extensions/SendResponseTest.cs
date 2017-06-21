@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Amockibia.Extensions;
-using Amockibia.Test.Extensions.Utilities;
+using Amockibia.Test.Utilities;
 using Microsoft.Net.Http.Headers;
 using FluentAssertions;
 using Xunit;

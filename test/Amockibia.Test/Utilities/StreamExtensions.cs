@@ -2,7 +2,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Amockibia.Test.Core.Utilities
+namespace Amockibia.Test.Utilities
 {
     public static class StreamExtensions
     {

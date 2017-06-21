@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 using Amockibia.Extensions;
-using Amockibia.Test.Extensions.Utilities;
+using Amockibia.Test.Utilities;
 using FluentAssertions;
 using Xunit;
 
