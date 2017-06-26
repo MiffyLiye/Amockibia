@@ -79,6 +79,7 @@ namespace Amockibia.Test.Extensions
             var message = "window.start = new Date()";
             var messageBody = new MemoryStream(Encoding.UTF8.GetBytes(message));
             var messageMd5 = MD5.Create().ComputeHash(messageBody);
+            var contentRange = $"bytes 0-{messageBody.Length - 1}/{messageBody.Length}";
             var expires = new DateTimeOffset(2012, 12, 31, 12, 0, 0, TimeSpan.FromMinutes(0));
             var lastModified = new DateTimeOffset(2012, 12, 31, 10, 0, 0, TimeSpan.FromMinutes(0));
             Server.Setup(When.Get("script")
@@ -89,7 +90,7 @@ namespace Amockibia.Test.Extensions
                 .WithHeader(HeaderNames.ContentLength, messageBody.Length.ToString())
                 .WithHeader(HeaderNames.ContentLocation, "/script/1")
                 .WithHeader("Content-MD5", Convert.ToBase64String(messageMd5))
-                .WithHeader(HeaderNames.ContentRange, $"bytes 0-{messageBody.Length}/{messageBody.Length}")
+                .WithHeader(HeaderNames.ContentRange, contentRange)
                 .WithHeader(HeaderNames.ContentType, "application/javascript")
                 .WithHeader(HeaderNames.Expires, expires.ToString("R"))
                 .WithHeader(HeaderNames.LastModified, lastModified.ToString("R"))
@@ -113,8 +114,9 @@ namespace Amockibia.Test.Extensions
                 .Should().Be("/script/1");
             entityHeaders.ContentMD5
                 .Should().Equal(messageMd5);
-            // entityHeaders.ContentRange
-            //    .Should().Be(new ContentRangeHeaderValue(0, messageBody.Length, messageBody.Length));
+            entityHeaders.ContentRange
+                .ToString()
+                .Should().Be(contentRange);
             entityHeaders.Expires
                 .Should().Be(expires);
             entityHeaders.LastModified
