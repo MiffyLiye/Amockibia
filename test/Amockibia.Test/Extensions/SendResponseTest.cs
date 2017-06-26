@@ -88,7 +88,7 @@ namespace Amockibia.Test.Extensions
                 .WithHeader(HeaderNames.ContentLanguage, "en")
                 .WithHeader(HeaderNames.ContentLength, messageBody.Length.ToString())
                 .WithHeader(HeaderNames.ContentLocation, "/script/1")
-                .WithHeader(HeaderNames.ContentMD5, Convert.ToBase64String(messageMd5))
+                .WithHeader("Content-MD5", Convert.ToBase64String(messageMd5))
                 .WithHeader(HeaderNames.ContentRange, $"bytes 0-{messageBody.Length}/{messageBody.Length}")
                 .WithHeader(HeaderNames.ContentType, "application/javascript")
                 .WithHeader(HeaderNames.Expires, expires.ToString("R"))
@@ -111,8 +111,8 @@ namespace Amockibia.Test.Extensions
             entityHeaders.ContentLocation
                 .ToString()
                 .Should().Be("/script/1");
-            // entityHeaders.ContentMD5
-            //    .Should().Equal(messageMd5);
+            entityHeaders.ContentMD5
+                .Should().Equal(messageMd5);
             // entityHeaders.ContentRange
             //    .Should().Be(new ContentRangeHeaderValue(0, messageBody.Length, messageBody.Length));
             entityHeaders.Expires
