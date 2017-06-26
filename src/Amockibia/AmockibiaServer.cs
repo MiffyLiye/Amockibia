@@ -26,7 +26,6 @@ namespace Amockibia
             {
                 ServerId = NextId.ToString();
                 NextId += 1;
-
             }
             var config = ServerId.GetConfig(this);
             config.Rules.Add(new RequestHandler(new AlwaysMatchMatcher(), new NotImplementedResponder(), int.MaxValue, -1));
@@ -36,13 +35,13 @@ namespace Amockibia
             SelfHost = new Lazy<IWebHost>(() =>
             new WebHostBuilder()
                 .UseKestrel()
-                .UseStartup(typeof(Startup))
+                .UseStartup<Startup>()
                 .UseEnvironment(ServerId)
                 .Start(BaseAddress.ToString()));
 
             InMemoryHost = new Lazy<TestServer>(() =>
             new TestServer(new WebHostBuilder()
-                .UseStartup(typeof(Startup))
+                .UseStartup<Startup>()
                 .UseEnvironment(ServerId)));
         }
         
