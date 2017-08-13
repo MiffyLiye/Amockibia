@@ -85,5 +85,26 @@ namespace Amockibia.Test.Extensions
             var response = await Client.SendAsync(request);
             response.StatusCode.Should().Be(statusCode);
         }
+
+        [Fact]
+        public async Task should_use_next_matched_rule_when_previous_rule_throws()
+        {
+            Server.Setup(When.Receive(r =>
+                {
+                    if (r.Method == HttpMethod.Delete.ToString())
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    return true;
+                })
+                .SendOK()
+                .WithPriority(1));
+            Server.Setup(When.Receive(r => true)
+                .Send(HttpStatusCode.Continue)
+                .WithPriority(2));
+
+            var response = await Client.DeleteAsync("");
+            response.StatusCode.Should().Be(HttpStatusCode.Continue);
+        }
     }
 }

@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using Amockibia.Utilities;
 using Microsoft.AspNetCore.Http;
 
 namespace Amockibia.Rule
@@ -47,7 +49,16 @@ namespace Amockibia.Rule
         /// </summary>
         public bool Matches(HttpRequest request)
         {
-            return Matcher.Matches(request);
+            try
+            {
+                return Matcher.Matches(request);
+
+            }
+            catch (Exception e)
+            {
+                e.Ignore();
+                return false;
+            }
         }
 
         public async Task Respond(HttpRequest request, HttpResponse response)
