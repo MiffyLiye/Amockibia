@@ -7,9 +7,9 @@ using Xunit;
 
 namespace Amockibia.Test.Extensions
 {
-    public class MatchBaseAddressTest : TestBase
+    public class MatchBaseAddressInMemoryModeTest : TestBase
     {
-        public MatchBaseAddressTest() : base("https://miffyliye.org/test/")
+        public MatchBaseAddressInMemoryModeTest() : base("https://miffyliye.org/test/")
         {
             Client = SelectHttpClient(true);
         }
