@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Net.Http;
+using System.Net.NetworkInformation;
 
 namespace Amockibia.Test
 {
@@ -23,7 +25,11 @@ namespace Amockibia.Test
                 var normalizedRelativeBaseUrl = baseUrl.StartsWith("/") ? baseUrl : "/" + baseUrl;
                 lock (Locker)
                 {
-                    BaseAddress = new Uri($"http://localhost:{NextPortNumber}/{normalizedRelativeBaseUrl}");
+                    while (!IsPortAvailable(NextPortNumber))
+                    {
+                        NextPortNumber += 1;
+                    }
+                    BaseAddress = new Uri($"http://localhost:{NextPortNumber}{normalizedRelativeBaseUrl}");
                     NextPortNumber += 1;
                 }
             }
@@ -48,6 +54,12 @@ namespace Amockibia.Test
         protected HttpClient SelectHttpClient(bool isInMemoryHost)
         {
             return isInMemoryHost ? InMemoryClient.Value : SelfHostClient.Value;
+        }
+
+        private bool IsPortAvailable(int port)
+        {
+            var tcpConnectionInfo = IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpConnections();
+            return tcpConnectionInfo.All(i => i.LocalEndPoint.Port != port);
         }
     }
 }

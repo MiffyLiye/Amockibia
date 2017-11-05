@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using Amockibia.Rule;
 using Amockibia.Rule.Builder;
@@ -34,10 +35,14 @@ namespace Amockibia
 
             SelfHost = new Lazy<IWebHost>(() =>
             new WebHostBuilder()
-                .UseKestrel()
+                .UseKestrel(options =>
+                {
+                    options.Listen(IPAddress.Loopback, BaseAddress.Port);
+                })
                 .UseStartup<Startup>()
                 .UseEnvironment(ServerId)
-                .Start(BaseAddress.ToString()));
+                .UseUrls(BaseAddress.ToString())
+                .Start());
 
             InMemoryHost = new Lazy<TestServer>(() =>
             new TestServer(new WebHostBuilder()

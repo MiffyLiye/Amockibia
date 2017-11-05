@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6BD0B3A4-74EE-48CE-AF54-A44F447169C1}"
 EndProject
@@ -9,13 +9,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amockibia", "src\Amockibia\Amockibia.csproj", "{4B37C180-5CA6-400C-878A-94DA8C4A8750}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amockibia", "src\Amockibia\Amockibia.csproj", "{4B37C180-5CA6-400C-878A-94DA8C4A8750}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F88A9EB3-576D-4CDC-8A6F-27B0E27ACE2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amockibia.Test", "test\Amockibia.Test\Amockibia.Test.csproj", "{65751D81-3CB5-4C1E-B774-88EAEE8A1A4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amockibia.Test", "test\Amockibia.Test\Amockibia.Test.csproj", "{65751D81-3CB5-4C1E-B774-88EAEE8A1A4B}"
 EndProject
 Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -36,5 +39,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4B37C180-5CA6-400C-878A-94DA8C4A8750} = {6BD0B3A4-74EE-48CE-AF54-A44F447169C1}
 		{65751D81-3CB5-4C1E-B774-88EAEE8A1A4B} = {F88A9EB3-576D-4CDC-8A6F-27B0E27ACE2E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F03DE69-AD9D-4F0C-B257-62A43D63E8A9}
 	EndGlobalSection
 EndGlobal
