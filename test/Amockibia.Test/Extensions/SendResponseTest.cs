@@ -89,7 +89,7 @@ namespace Amockibia.Test.Extensions
                 .WithHeader(HeaderNames.ContentLanguage, "en")
                 .WithHeader(HeaderNames.ContentLength, messageBody.Length.ToString())
                 .WithHeader(HeaderNames.ContentLocation, "/script/1")
-                .WithHeader("Content-MD5", Convert.ToBase64String(messageMd5))
+                .WithHeader(HeaderNames.ContentMD5, Convert.ToBase64String(messageMd5))
                 .WithHeader(HeaderNames.ContentRange, contentRange)
                 .WithHeader(HeaderNames.ContentType, "application/javascript")
                 .WithHeader(HeaderNames.Expires, expires.ToString("R"))
