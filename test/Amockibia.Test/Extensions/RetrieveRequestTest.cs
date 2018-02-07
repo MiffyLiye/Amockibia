@@ -1,9 +1,11 @@
 ﻿using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Amockibia.Extensions;
 using Amockibia.Test.Utilities;
 using FluentAssertions;
+using Microsoft.AspNetCore.Http;
 using Xunit;
 
 namespace Amockibia.Test.Extensions
@@ -60,6 +62,16 @@ namespace Amockibia.Test.Extensions
             var data = await Server.Retrieve("post action").Requests.Single().Body
                 .ReadAsAnonymousTypeAsync(new {Name = default(string)});
             data.Name.Should().Be(name);
+        }
+        
+        [Fact]
+        public async Task should_retrieve_request_content_type()
+        {
+            Server.Setup(When.Post("stub-uri").Send(HttpStatusCode.Created).WithId("post action"));
+            
+            await Client.PostAsync("stub-uri", new ObjectContent(new {Name = "name"}));
+            var request = Server.Retrieve("post action").Requests.Single();
+            request.ContentType.Should().Be("application/json");
         }
         
         [Fact]
