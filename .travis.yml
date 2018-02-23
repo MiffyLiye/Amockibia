@@ -1,0 +1,14 @@
+language: csharp
+solution: Amockibia.sln
+sudo: required
+dotnet: 2.0.0
+mono: none
+os:
+  - linux
+
+before_script:
+  - dotnet restore
+
+script:
+  - dotnet build
+  - dotnet test ./test/Amockibia.Test/Amockibia.Test.csproj
