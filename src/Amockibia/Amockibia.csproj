@@ -27,7 +27,7 @@
     <Description>A hybrid HTTP mock library that can start both in memory server and self host server.
 The core facilities can make complex things possible, and the extensions can make simple things simple.
 Usages can be found in project test cases.</Description>
-    <Copyright>Copyright © 2017 MiffyLiye.</Copyright>
+    <Copyright>Copyright © 2017-2018 MiffyLiye.</Copyright>
     <PackageLicenseUrl>https://github.com/MiffyLiye/Amockibia/blob/master/LICENSE.txt</PackageLicenseUrl>
   </PropertyGroup>
   <ItemGroup>
