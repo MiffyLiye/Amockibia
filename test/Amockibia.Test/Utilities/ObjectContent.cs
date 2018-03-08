@@ -32,7 +32,7 @@ namespace Amockibia.Test.Utilities
         public ObjectContent(object obj)
         {
             Content = new JsonContentImpl(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
-            Content.Headers.ContentType = Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+            Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
         }
 
         protected override Task SerializeToStreamAsync(Stream stream, TransportContext context)
