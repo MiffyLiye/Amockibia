@@ -56,16 +56,16 @@ namespace Amockibia.Test.Extensions
         [Theory]
         [InlineData(true, "")]
         [InlineData(false, "")]
-        [InlineData(true, "hash?stub=1")]
-        [InlineData(false, "hash?stub=1")]
-        [InlineData(true, "hash?stub=1&uri=2")]
-        [InlineData(false, "hash?stub=1&uri=2")]
-        public async Task should_match_same_uri_and_ignore_additional_hash(bool useInMemoryClient, string hash)
+        [InlineData(true, "?stub=1#hash")]
+        [InlineData(false, "?stub=1#hash")]
+        [InlineData(true, "?stub=1&uri=2#hash")]
+        [InlineData(false, "?stub=1&uri=2#hash")]
+        public async Task should_match_same_uri_and_ignore_additional_hash(bool useInMemoryClient, string queryAndHash)
         {
             Server.Setup(When.Get("stub-uri").SendOK());
             var client = SelectHttpClient(useInMemoryClient);
 
-            var response = await client.GetAsync($"stub-uri#{hash}");
+            var response = await client.GetAsync($"stub-uri{queryAndHash}");
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 

@@ -1,0 +1,1738 @@
+{
+ "/Users/miffyliye/Code/GitHub/Amockibia/test/Amockibia.Test/bin/Debug/netcoreapp2.0/Amockibia.dll": {
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/AmockibiaServer.cs": {
+   "Amockibia.AmockibiaServer": {
+    "System.String Amockibia.AmockibiaServer::get_ServerId()": {
+     "17": {
+      "Hits": 554,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Uri Amockibia.AmockibiaServer::get_BaseAddress()": {
+     "18": {
+      "Hits": 225,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Object Amockibia.AmockibiaServer::get_Locker()": {
+     "19": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 Amockibia.AmockibiaServer::get_NextId()": {
+     "20": {
+      "Hits": 313,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Lazy`1<Microsoft.AspNetCore.Hosting.IWebHost> Amockibia.AmockibiaServer::get_SelfHost()": {
+     "21": {
+      "Hits": 138,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Lazy`1<Microsoft.AspNetCore.TestHost.TestServer> Amockibia.AmockibiaServer::get_InMemoryHost()": {
+     "22": {
+      "Hits": 280,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void Amockibia.AmockibiaServer::.ctor(System.Uri)": {
+     "24": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "25": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "26": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "27": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "28": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "29": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "30": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "31": {
+      "Hits": 104,
+      "IsBranchPoint": true
+     },
+     "32": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "34": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "36": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "37": {
+      "Hits": 121,
+      "IsBranchPoint": false
+     },
+     "38": {
+      "Hits": 121,
+      "IsBranchPoint": false
+     },
+     "39": {
+      "Hits": 138,
+      "IsBranchPoint": false
+     },
+     "40": {
+      "Hits": 138,
+      "IsBranchPoint": false
+     },
+     "41": {
+      "Hits": 138,
+      "IsBranchPoint": false
+     },
+     "42": {
+      "Hits": 121,
+      "IsBranchPoint": false
+     },
+     "43": {
+      "Hits": 121,
+      "IsBranchPoint": false
+     },
+     "44": {
+      "Hits": 121,
+      "IsBranchPoint": false
+     },
+     "45": {
+      "Hits": 121,
+      "IsBranchPoint": false
+     },
+     "47": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "48": {
+      "Hits": 192,
+      "IsBranchPoint": false
+     },
+     "49": {
+      "Hits": 192,
+      "IsBranchPoint": false
+     },
+     "50": {
+      "Hits": 192,
+      "IsBranchPoint": false
+     },
+     "51": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void Amockibia.AmockibiaServer::Setup(Amockibia.Rule.Builder.IRuleBuildable)": {
+     "54": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     },
+     "55": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     },
+     "56": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     }
+    },
+    "Amockibia.Rule.RequestHandler Amockibia.AmockibiaServer::GetHandler(System.String)": {
+     "59": {
+      "Hits": 13,
+      "IsBranchPoint": false
+     },
+     "60": {
+      "Hits": 39,
+      "IsBranchPoint": false
+     },
+     "61": {
+      "Hits": 13,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Void Amockibia.AmockibiaServer::StartSelfHost()": {
+     "64": {
+      "Hits": 17,
+      "IsBranchPoint": false
+     },
+     "65": {
+      "Hits": 17,
+      "IsBranchPoint": false
+     },
+     "66": {
+      "Hits": 17,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void Amockibia.AmockibiaServer::StartInMemoryHost()": {
+     "72": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "73": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "74": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Net.Http.HttpClient Amockibia.AmockibiaServer::CreateInMemoryClient()": {
+     "77": {
+      "Hits": 88,
+      "IsBranchPoint": false
+     },
+     "78": {
+      "Hits": 88,
+      "IsBranchPoint": false
+     },
+     "80": {
+      "Hits": 88,
+      "IsBranchPoint": false
+     },
+     "81": {
+      "Hits": 88,
+      "IsBranchPoint": false
+     },
+     "82": {
+      "Hits": 88,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Void Amockibia.AmockibiaServer::Dispose()": {
+     "85": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "86": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "87": {
+      "Hits": 17,
+      "IsBranchPoint": false
+     },
+     "88": {
+      "Hits": 17,
+      "IsBranchPoint": false
+     },
+     "89": {
+      "Hits": 17,
+      "IsBranchPoint": false
+     },
+     "90": {
+      "Hits": 104,
+      "IsBranchPoint": true
+     },
+     "91": {
+      "Hits": 88,
+      "IsBranchPoint": false
+     },
+     "92": {
+      "Hits": 88,
+      "IsBranchPoint": false
+     },
+     "93": {
+      "Hits": 88,
+      "IsBranchPoint": false
+     },
+     "94": {
+      "Hits": 104,
+      "IsBranchPoint": true
+     },
+     "95": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Utilities/GenericExtensions.cs": {
+   "Amockibia.Utilities.GenericExtensions": {
+    "System.Void Amockibia.Utilities.GenericExtensions::Ignore(T)": {
+     "5": {
+      "Hits": 72,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Utilities/ServerExtensions.cs": {
+   "Amockibia.Utilities.ServerExtensions": {
+    "System.Lazy`1<System.Collections.Concurrent.ConcurrentDictionary`2<System.String,Amockibia.Server.ServerConfig>> Amockibia.Utilities.ServerExtensions::get_Config()": {
+     "9": {
+      "Hits": 536,
+      "IsBranchPoint": false
+     }
+    },
+    "Amockibia.Server.ServerConfig Amockibia.Utilities.ServerExtensions::GetConfig(System.String,Amockibia.AmockibiaServer)": {
+     "12": {
+      "Hits": 430,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 534,
+      "IsBranchPoint": false
+     },
+     "14": {
+      "Hits": 430,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Void Amockibia.Utilities.ServerExtensions::Stop(System.String)": {
+     "17": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "19": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "20": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Server/AmockibiaMiddleware.cs": {
+   "Amockibia.Server.AmockibiaMiddleware": {
+    "Microsoft.AspNetCore.Http.RequestDelegate Amockibia.Server.AmockibiaMiddleware::get_Next()": {
+     "12": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Object Amockibia.Server.AmockibiaMiddleware::get_Locker()": {
+     "13": {
+      "Hits": 222,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Collections.Generic.List`1<Amockibia.Rule.RequestHandler> Amockibia.Server.AmockibiaMiddleware::get_Rules()": {
+     "14": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void Amockibia.Server.AmockibiaMiddleware::.ctor(Microsoft.AspNetCore.Http.RequestDelegate,System.String)": {
+     "16": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     },
+     "18": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     },
+     "19": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     },
+     "20": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     }
+    }
+   },
+   "Amockibia.Server.AmockibiaMiddleware/<>c__DisplayClass10_0": {
+    "System.Boolean Amockibia.Server.AmockibiaMiddleware/<>c__DisplayClass10_0::<Invoke>b__0(Amockibia.Rule.RequestHandler)": {
+     "25": {
+      "Hits": 579,
+      "IsBranchPoint": false
+     }
+    }
+   },
+   "Amockibia.Server.AmockibiaMiddleware/<>c": {
+    "System.Boolean Amockibia.Server.AmockibiaMiddleware/<>c::<Invoke>b__10_2(Amockibia.Rule.RequestHandler)": {
+     "30": {
+      "Hits": 234,
+      "IsBranchPoint": false
+     }
+    }
+   },
+   "Amockibia.Server.AmockibiaMiddleware/<Invoke>d__10": {
+    "System.Void Amockibia.Server.AmockibiaMiddleware/<Invoke>d__10::MoveNext()": {
+     "23": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     },
+     "24": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     },
+     "26": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     },
+     "28": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     },
+     "29": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     },
+     "31": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     },
+     "32": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     },
+     "33": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     },
+     "34": {
+      "Hits": 117,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Server/ServerConfig.cs": {
+   "Amockibia.Server.ServerConfig": {
+    "Amockibia.AmockibiaServer Amockibia.Server.ServerConfig::get_Server()": {
+     "8": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Collections.Generic.List`1<Amockibia.Rule.RequestHandler> Amockibia.Server.ServerConfig::get_Rules()": {
+     "9": {
+      "Hits": 336,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void Amockibia.Server.ServerConfig::.ctor(Amockibia.AmockibiaServer)": {
+     "11": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "12": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "14": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     },
+     "15": {
+      "Hits": 104,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Server/Startup.cs": {
+   "Amockibia.Server.Startup": {
+    "System.Void Amockibia.Server.Startup::.ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment)": {
+     "11": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     },
+     "12": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     },
+     "14": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     },
+     "15": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     },
+     "16": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     }
+    },
+    "Microsoft.Extensions.Configuration.IConfigurationRoot Amockibia.Server.Startup::get_Configuration()": {
+     "19": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void Amockibia.Server.Startup::ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)": {
+     "23": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     },
+     "25": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void Amockibia.Server.Startup::Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory)": {
+     "29": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     },
+     "30": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     },
+     "31": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Rule/RequestHandler.cs": {
+   "Amockibia.Rule.RequestHandler": {
+    "System.String Amockibia.Rule.RequestHandler::get_Id()": {
+     "12": {
+      "Hits": 143,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Collections.Generic.List`1<Microsoft.AspNetCore.Http.HttpRequest> Amockibia.Rule.RequestHandler::get_HandledRequests()": {
+     "13": {
+      "Hits": 28,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Collections.Generic.IReadOnlyList`1<Microsoft.AspNetCore.Http.HttpRequest> Amockibia.Rule.RequestHandler::get_ReceivedRequests()": {
+     "14": {
+      "Hits": 13,
+      "IsBranchPoint": false
+     }
+    },
+    "Amockibia.Rule.IRequestMatchable Amockibia.Rule.RequestHandler::get_Matcher()": {
+     "15": {
+      "Hits": 243,
+      "IsBranchPoint": false
+     }
+    },
+    "Amockibia.Rule.IRequestRespondable Amockibia.Rule.RequestHandler::get_Responder()": {
+     "16": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 Amockibia.Rule.RequestHandler::get_Priority()": {
+     "20": {
+      "Hits": 213,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 Amockibia.Rule.RequestHandler::get_MatchTimesUntilExpire()": {
+     "24": {
+      "Hits": 935,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void Amockibia.Rule.RequestHandler::.ctor(Amockibia.Rule.IRequestMatchable,Amockibia.Rule.IRequestRespondable,System.Int32,System.Int32,System.String)": {
+     "26": {
+      "Hits": 218,
+      "IsBranchPoint": false
+     },
+     "27": {
+      "Hits": 218,
+      "IsBranchPoint": false
+     },
+     "28": {
+      "Hits": 218,
+      "IsBranchPoint": false
+     },
+     "29": {
+      "Hits": 218,
+      "IsBranchPoint": false
+     },
+     "30": {
+      "Hits": 218,
+      "IsBranchPoint": false
+     },
+     "31": {
+      "Hits": 218,
+      "IsBranchPoint": false
+     },
+     "32": {
+      "Hits": 218,
+      "IsBranchPoint": false
+     },
+     "33": {
+      "Hits": 218,
+      "IsBranchPoint": false
+     },
+     "34": {
+      "Hits": 218,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean Amockibia.Rule.RequestHandler::Alive()": {
+     "37": {
+      "Hits": 366,
+      "IsBranchPoint": false
+     },
+     "38": {
+      "Hits": 366,
+      "IsBranchPoint": false
+     },
+     "39": {
+      "Hits": 366,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Void Amockibia.Rule.RequestHandler::Reserve()": {
+     "42": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     },
+     "43": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     },
+     "44": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean Amockibia.Rule.RequestHandler::Matches(Microsoft.AspNetCore.Http.HttpRequest)": {
+     "51": {
+      "Hits": 243,
+      "IsBranchPoint": false
+     },
+     "53": {
+      "Hits": 243,
+      "IsBranchPoint": false
+     },
+     "54": {
+      "Hits": 243,
+      "IsBranchPoint": false
+     },
+     "57": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "58": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "59": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "60": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "62": {
+      "Hits": 243,
+      "IsBranchPoint": true
+     }
+    }
+   },
+   "Amockibia.Rule.RequestHandler/<Respond>d__25": {
+    "System.Void Amockibia.Rule.RequestHandler/<Respond>d__25::MoveNext()": {
+     "65": {
+      "Hits": 117,
+      "IsBranchPoint": true
+     },
+     "66": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     },
+     "67": {
+      "Hits": 15,
+      "IsBranchPoint": false
+     },
+     "68": {
+      "Hits": 15,
+      "IsBranchPoint": false
+     },
+     "69": {
+      "Hits": 15,
+      "IsBranchPoint": false
+     },
+     "70": {
+      "Hits": 15,
+      "IsBranchPoint": false
+     },
+     "72": {
+      "Hits": 15,
+      "IsBranchPoint": false
+     },
+     "73": {
+      "Hits": 15,
+      "IsBranchPoint": false
+     },
+     "74": {
+      "Hits": 117,
+      "IsBranchPoint": true
+     },
+     "75": {
+      "Hits": 117,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Rule/Builder/AlwaysMatchMatcher.cs": {
+   "Amockibia.Rule.Builder.AlwaysMatchMatcher": {
+    "System.Boolean Amockibia.Rule.Builder.AlwaysMatchMatcher::Matches(Microsoft.AspNetCore.Http.HttpRequest)": {
+     "8": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     },
+     "9": {
+      "Hits": 117,
+      "IsBranchPoint": false
+     },
+     "10": {
+      "Hits": 117,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Rule/Builder/NotImplementedResponder.cs": {
+   "Amockibia.Rule.Builder.NotImplementedResponder/<Respond>d__0": {
+    "System.Void Amockibia.Rule.Builder.NotImplementedResponder/<Respond>d__0::MoveNext()": {
+     "10": {
+      "Hits": 30,
+      "IsBranchPoint": true
+     },
+     "11": {
+      "Hits": 30,
+      "IsBranchPoint": false
+     },
+     "12": {
+      "Hits": 30,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 30,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Extensions/AdvancedRuleBuilder.cs": {
+   "Amockibia.Extensions.AdvancedRuleBuilder": {
+    "System.Void Amockibia.Extensions.AdvancedRuleBuilder::.ctor(Amockibia.Extensions.RuleBuilder)": {
+     "9": {
+      "Hits": 20,
+      "IsBranchPoint": false
+     },
+     "10": {
+      "Hits": 20,
+      "IsBranchPoint": false
+     },
+     "11": {
+      "Hits": 20,
+      "IsBranchPoint": false
+     }
+    },
+    "Amockibia.Extensions.AdvancedRuleBuilder Amockibia.Extensions.AdvancedRuleBuilder::WithPriority(System.Int32)": {
+     "14": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "15": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "16": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 2,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Extensions.AdvancedRuleBuilder Amockibia.Extensions.AdvancedRuleBuilder::WithMatchTimesUntilExpire(System.Int32)": {
+     "20": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "21": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "22": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "23": {
+      "Hits": 2,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Extensions.AdvancedRuleBuilder Amockibia.Extensions.AdvancedRuleBuilder::WithId(System.String)": {
+     "26": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "27": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "28": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "29": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "Amockibia.Rule.RequestHandler Amockibia.Extensions.AdvancedRuleBuilder::Build(System.String)": {
+     "33": {
+      "Hits": 20,
+      "IsBranchPoint": false
+     },
+     "34": {
+      "Hits": 20,
+      "IsBranchPoint": false
+     },
+     "35": {
+      "Hits": 20,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Extensions/RequestRuleBuilder.cs": {
+   "Amockibia.Extensions.RequestRuleBuilder": {
+    "System.Void Amockibia.Extensions.RequestRuleBuilder::.ctor(System.Func`2<Microsoft.AspNetCore.Http.HttpRequest,System.Boolean>)": {
+     "10": {
+      "Hits": 4,
+      "IsBranchPoint": false
+     },
+     "11": {
+      "Hits": 4,
+      "IsBranchPoint": false
+     },
+     "12": {
+      "Hits": 4,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 4,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void Amockibia.Extensions.RequestRuleBuilder::.ctor(System.Net.Http.HttpMethod,System.String)": {
+     "15": {
+      "Hits": 90,
+      "IsBranchPoint": false
+     },
+     "16": {
+      "Hits": 90,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 90,
+      "IsBranchPoint": false
+     },
+     "18": {
+      "Hits": 90,
+      "IsBranchPoint": false
+     },
+     "19": {
+      "Hits": 90,
+      "IsBranchPoint": false
+     }
+    },
+    "Amockibia.Extensions.RequestRuleBuilder Amockibia.Extensions.RequestRuleBuilder::WithRequest(System.Func`2<Microsoft.AspNetCore.Http.HttpRequest,System.Boolean>)": {
+     "22": {
+      "Hits": 8,
+      "IsBranchPoint": false
+     },
+     "23": {
+      "Hits": 8,
+      "IsBranchPoint": false
+     },
+     "24": {
+      "Hits": 8,
+      "IsBranchPoint": false
+     },
+     "25": {
+      "Hits": 8,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Extensions.ResponseRuleBuilder Amockibia.Extensions.RequestRuleBuilder::Send(System.Net.HttpStatusCode)": {
+     "28": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "29": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "30": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "31": {
+      "Hits": 94,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Extensions.ResponseRuleBuilder Amockibia.Extensions.RequestRuleBuilder::SendOK()": {
+     "35": {
+      "Hits": 79,
+      "IsBranchPoint": false
+     },
+     "36": {
+      "Hits": 79,
+      "IsBranchPoint": false
+     },
+     "37": {
+      "Hits": 79,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Extensions/ResponseRuleBuilder.cs": {
+   "Amockibia.Extensions.ResponseRuleBuilder": {
+    "System.Void Amockibia.Extensions.ResponseRuleBuilder::.ctor(Amockibia.Extensions.RequestRuleBuilder)": {
+     "11": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "12": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     }
+    },
+    "Amockibia.Extensions.ResponseRuleBuilder Amockibia.Extensions.ResponseRuleBuilder::WithPayloadObject(System.Object)": {
+     "16": {
+      "Hits": 12,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 12,
+      "IsBranchPoint": false
+     },
+     "18": {
+      "Hits": 12,
+      "IsBranchPoint": false
+     },
+     "19": {
+      "Hits": 12,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Extensions.ResponseRuleBuilder Amockibia.Extensions.ResponseRuleBuilder::WithHeader(System.String,System.String)": {
+     "22": {
+      "Hits": 18,
+      "IsBranchPoint": false
+     },
+     "23": {
+      "Hits": 18,
+      "IsBranchPoint": false
+     },
+     "24": {
+      "Hits": 18,
+      "IsBranchPoint": false
+     },
+     "25": {
+      "Hits": 18,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Extensions.ResponseRuleBuilder Amockibia.Extensions.ResponseRuleBuilder::WithBody(System.IO.Stream)": {
+     "28": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "29": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "30": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "31": {
+      "Hits": 1,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Extensions.AdvancedRuleBuilder Amockibia.Extensions.ResponseRuleBuilder::WithPriority(System.Int32)": {
+     "34": {
+      "Hits": 10,
+      "IsBranchPoint": false
+     },
+     "35": {
+      "Hits": 10,
+      "IsBranchPoint": false
+     },
+     "36": {
+      "Hits": 10,
+      "IsBranchPoint": false
+     },
+     "37": {
+      "Hits": 10,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Extensions.AdvancedRuleBuilder Amockibia.Extensions.ResponseRuleBuilder::WithMatchTimesUntilExpire(System.Int32)": {
+     "40": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "41": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "42": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "43": {
+      "Hits": 2,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Extensions.AdvancedRuleBuilder Amockibia.Extensions.ResponseRuleBuilder::WithId(System.String)": {
+     "46": {
+      "Hits": 8,
+      "IsBranchPoint": false
+     },
+     "47": {
+      "Hits": 8,
+      "IsBranchPoint": false
+     },
+     "48": {
+      "Hits": 8,
+      "IsBranchPoint": false
+     },
+     "49": {
+      "Hits": 8,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Rule.RequestHandler Amockibia.Extensions.ResponseRuleBuilder::Build(System.String)": {
+     "53": {
+      "Hits": 74,
+      "IsBranchPoint": false
+     },
+     "54": {
+      "Hits": 74,
+      "IsBranchPoint": false
+     },
+     "55": {
+      "Hits": 74,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Extensions/RuleBuilder.cs": {
+   "Amockibia.Extensions.RuleBuilder": {
+    "System.Collections.Generic.List`1<System.Func`2<Microsoft.AspNetCore.Http.HttpRequest,System.Boolean>> Amockibia.Extensions.RuleBuilder::get_Predicates()": {
+     "18": {
+      "Hits": 428,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Net.Http.HttpMethod Amockibia.Extensions.RuleBuilder::get_HttpMethod()": {
+     "19": {
+      "Hits": 412,
+      "IsBranchPoint": false
+     }
+    },
+    "System.String Amockibia.Extensions.RuleBuilder::get_Uri()": {
+     "20": {
+      "Hits": 412,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Net.HttpStatusCode Amockibia.Extensions.RuleBuilder::get_HttpStatusCode()": {
+     "22": {
+      "Hits": 482,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Object Amockibia.Extensions.RuleBuilder::get_Payload()": {
+     "23": {
+      "Hits": 314,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Collections.Generic.List`1<System.Collections.Generic.KeyValuePair`2<System.String,System.String>> Amockibia.Extensions.RuleBuilder::get_ExtraHeaders()": {
+     "24": {
+      "Hits": 406,
+      "IsBranchPoint": false
+     }
+    },
+    "System.IO.Stream Amockibia.Extensions.RuleBuilder::get_Body()": {
+     "25": {
+      "Hits": 297,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 Amockibia.Extensions.RuleBuilder::get_Priority()": {
+     "27": {
+      "Hits": 428,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 Amockibia.Extensions.RuleBuilder::get_MatchTimeUntilExpire()": {
+     "28": {
+      "Hits": 420,
+      "IsBranchPoint": false
+     }
+    },
+    "System.String Amockibia.Extensions.RuleBuilder::get_RuleId()": {
+     "30": {
+      "Hits": 330,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void Amockibia.Extensions.RuleBuilder::.ctor(Amockibia.Extensions.RuleBuilder)": {
+     "32": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     },
+     "33": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     },
+     "34": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     },
+     "35": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     },
+     "36": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     },
+     "38": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     },
+     "39": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     },
+     "40": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     },
+     "41": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     },
+     "43": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     },
+     "44": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     },
+     "45": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     },
+     "46": {
+      "Hits": 114,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void Amockibia.Extensions.RuleBuilder::.ctor()": {
+     "48": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "49": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "50": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "51": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "52": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "53": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "54": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "55": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     }
+    },
+    "Amockibia.Rule.RequestHandler Amockibia.Extensions.RuleBuilder::BuildRule(System.String)": {
+     "58": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "59": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "60": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "61": {
+      "Hits": 160,
+      "IsBranchPoint": true
+     },
+     "62": {
+      "Hits": 160,
+      "IsBranchPoint": false
+     },
+     "63": {
+      "Hits": 328,
+      "IsBranchPoint": true
+     },
+     "64": {
+      "Hits": 112,
+      "IsBranchPoint": false
+     },
+     "65": {
+      "Hits": 112,
+      "IsBranchPoint": false
+     },
+     "66": {
+      "Hits": 112,
+      "IsBranchPoint": false
+     },
+     "67": {
+      "Hits": 160,
+      "IsBranchPoint": false
+     },
+     "68": {
+      "Hits": 159,
+      "IsBranchPoint": false
+     },
+     "69": {
+      "Hits": 159,
+      "IsBranchPoint": false
+     },
+     "70": {
+      "Hits": 159,
+      "IsBranchPoint": false
+     },
+     "71": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "72": {
+      "Hits": 160,
+      "IsBranchPoint": true
+     },
+     "73": {
+      "Hits": 95,
+      "IsBranchPoint": false
+     },
+     "74": {
+      "Hits": 95,
+      "IsBranchPoint": false
+     },
+     "75": {
+      "Hits": 95,
+      "IsBranchPoint": false
+     },
+     "76": {
+      "Hits": 95,
+      "IsBranchPoint": false
+     },
+     "77": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "78": {
+      "Hits": 159,
+      "IsBranchPoint": true
+     },
+     "79": {
+      "Hits": 159,
+      "IsBranchPoint": false
+     },
+     "80": {
+      "Hits": 159,
+      "IsBranchPoint": false
+     },
+     "81": {
+      "Hits": 160,
+      "IsBranchPoint": true
+     },
+     "82": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "83": {
+      "Hits": 94,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Extensions/RuleExecutionResult.cs": {
+   "Amockibia.Extensions.RuleExecutionResult": {
+    "System.Void Amockibia.Extensions.RuleExecutionResult::.ctor(Amockibia.Rule.RequestHandler)": {
+     "12": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     },
+     "14": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     },
+     "15": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 Amockibia.Extensions.RuleExecutionResult::get_HasBeenCalledTimes()": {
+     "17": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean Amockibia.Extensions.RuleExecutionResult::get_HasBeenCalled()": {
+     "18": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Collections.Generic.IReadOnlyList`1<Microsoft.AspNetCore.Http.HttpRequest> Amockibia.Extensions.RuleExecutionResult::get_Requests()": {
+     "19": {
+      "Hits": 5,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Extensions/ServerVerifyExtensions.cs": {
+   "Amockibia.Extensions.ServerVerifyExtensions": {
+    "Amockibia.Extensions.RuleExecutionResult Amockibia.Extensions.ServerVerifyExtensions::Retrieve(Amockibia.AmockibiaServer,System.String)": {
+     "6": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     },
+     "7": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     },
+     "8": {
+      "Hits": 9,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Extensions/When.cs": {
+   "Amockibia.Extensions.When": {
+    "Amockibia.Extensions.RequestRuleBuilder Amockibia.Extensions.When::Receive(System.Func`2<Microsoft.AspNetCore.Http.HttpRequest,System.Boolean>)": {
+     "10": {
+      "Hits": 4,
+      "IsBranchPoint": false
+     },
+     "11": {
+      "Hits": 4,
+      "IsBranchPoint": false
+     },
+     "12": {
+      "Hits": 4,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Extensions.RequestRuleBuilder Amockibia.Extensions.When::Receive(System.Net.Http.HttpMethod,System.String)": {
+     "15": {
+      "Hits": 90,
+      "IsBranchPoint": false
+     },
+     "16": {
+      "Hits": 90,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 90,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Extensions.RequestRuleBuilder Amockibia.Extensions.When::Get(System.String)": {
+     "20": {
+      "Hits": 65,
+      "IsBranchPoint": false
+     },
+     "21": {
+      "Hits": 65,
+      "IsBranchPoint": false
+     },
+     "22": {
+      "Hits": 65,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Extensions.RequestRuleBuilder Amockibia.Extensions.When::Post(System.String)": {
+     "25": {
+      "Hits": 11,
+      "IsBranchPoint": false
+     },
+     "26": {
+      "Hits": 11,
+      "IsBranchPoint": false
+     },
+     "27": {
+      "Hits": 11,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Extensions.RequestRuleBuilder Amockibia.Extensions.When::Put(System.String)": {
+     "30": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "31": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "32": {
+      "Hits": 2,
+      "IsBranchPoint": true
+     }
+    },
+    "Amockibia.Extensions.RequestRuleBuilder Amockibia.Extensions.When::Delete(System.String)": {
+     "35": {
+      "Hits": 4,
+      "IsBranchPoint": false
+     },
+     "36": {
+      "Hits": 4,
+      "IsBranchPoint": false
+     },
+     "37": {
+      "Hits": 4,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Extensions/Responder/RequestResponder.cs": {
+   "Amockibia.Extensions.Responder.RequestResponder": {
+    "System.Func`2<Microsoft.AspNetCore.Http.HttpResponse,System.Threading.Tasks.Task> Amockibia.Extensions.Responder.RequestResponder::get_RespondAction()": {
+     "10": {
+      "Hits": 66,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void Amockibia.Extensions.Responder.RequestResponder::.ctor(System.Func`2<Microsoft.AspNetCore.Http.HttpResponse,System.Threading.Tasks.Task>)": {
+     "12": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "14": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "15": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     }
+    }
+   },
+   "Amockibia.Extensions.Responder.RequestResponder/<Respond>d__4": {
+    "System.Void Amockibia.Extensions.Responder.RequestResponder/<Respond>d__4::MoveNext()": {
+     "18": {
+      "Hits": 66,
+      "IsBranchPoint": true
+     },
+     "19": {
+      "Hits": 66,
+      "IsBranchPoint": false
+     },
+     "20": {
+      "Hits": 66,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "/Users/miffyliye/Code/GitHub/Amockibia/src/Amockibia/Extensions/Matcher/RequestMatcher.cs": {
+   "Amockibia.Extensions.Matcher.RequestMatcher": {
+    "System.Collections.Generic.List`1<System.Func`2<Microsoft.AspNetCore.Http.HttpRequest,System.Boolean>> Amockibia.Extensions.Matcher.RequestMatcher::get_Predicates()": {
+     "15": {
+      "Hits": 194,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Net.Http.HttpMethod Amockibia.Extensions.Matcher.RequestMatcher::get_HttpMethod()": {
+     "16": {
+      "Hits": 190,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Uri Amockibia.Extensions.Matcher.RequestMatcher::get_ExpectedUri()": {
+     "17": {
+      "Hits": 287,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean Amockibia.Extensions.Matcher.RequestMatcher::get_IsAbsolute()": {
+     "18": {
+      "Hits": 179,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void Amockibia.Extensions.Matcher.RequestMatcher::.ctor(System.String,System.Collections.Generic.List`1<System.Func`2<Microsoft.AspNetCore.Http.HttpRequest,System.Boolean>>,System.Net.Http.HttpMethod,System.String)": {
+     "20": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "21": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "22": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "23": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "24": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "25": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "26": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "27": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "28": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     },
+     "29": {
+      "Hits": 94,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean Amockibia.Extensions.Matcher.RequestMatcher::Matches(Microsoft.AspNetCore.Http.HttpRequest)": {
+     "32": {
+      "Hits": 100,
+      "IsBranchPoint": false
+     },
+     "33": {
+      "Hits": 111,
+      "IsBranchPoint": false
+     },
+     "34": {
+      "Hits": 3,
+      "IsBranchPoint": false
+     },
+     "35": {
+      "Hits": 3,
+      "IsBranchPoint": false
+     },
+     "37": {
+      "Hits": 96,
+      "IsBranchPoint": true
+     },
+     "38": {
+      "Hits": 5,
+      "IsBranchPoint": false
+     },
+     "39": {
+      "Hits": 5,
+      "IsBranchPoint": false
+     },
+     "41": {
+      "Hits": 91,
+      "IsBranchPoint": true
+     },
+     "42": {
+      "Hits": 89,
+      "IsBranchPoint": false
+     },
+     "43": {
+      "Hits": 89,
+      "IsBranchPoint": false
+     },
+     "44": {
+      "Hits": 18,
+      "IsBranchPoint": false
+     },
+     "45": {
+      "Hits": 18,
+      "IsBranchPoint": false
+     },
+     "46": {
+      "Hits": 4,
+      "IsBranchPoint": false
+     },
+     "47": {
+      "Hits": 4,
+      "IsBranchPoint": false
+     },
+     "49": {
+      "Hits": 14,
+      "IsBranchPoint": true
+     },
+     "50": {
+      "Hits": 3,
+      "IsBranchPoint": false
+     },
+     "51": {
+      "Hits": 3,
+      "IsBranchPoint": false
+     },
+     "53": {
+      "Hits": 11,
+      "IsBranchPoint": true
+     },
+     "54": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "55": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "57": {
+      "Hits": 10,
+      "IsBranchPoint": true
+     },
+     "58": {
+      "Hits": 81,
+      "IsBranchPoint": true
+     },
+     "59": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     },
+     "60": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     },
+     "63": {
+      "Hits": 72,
+      "IsBranchPoint": true
+     },
+     "65": {
+      "Hits": 226,
+      "IsBranchPoint": true
+     },
+     "66": {
+      "Hits": 6,
+      "IsBranchPoint": false
+     },
+     "68": {
+      "Hits": 6,
+      "IsBranchPoint": false
+     },
+     "69": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "70": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "72": {
+      "Hits": 5,
+      "IsBranchPoint": true
+     },
+     "73": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "74": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "76": {
+      "Hits": 4,
+      "IsBranchPoint": true
+     },
+     "77": {
+      "Hits": 70,
+      "IsBranchPoint": true
+     },
+     "79": {
+      "Hits": 72,
+      "IsBranchPoint": true
+     },
+     "80": {
+      "Hits": 99,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  }
+ }
+}
