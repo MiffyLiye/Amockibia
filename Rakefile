@@ -48,6 +48,9 @@ end
 desc 'Package'
 task :package do
     puts '== Package Started =='
-    ensure_system_success 'dotnet pack src/Amockibia/Amockibia.csproj --configuration Release --verbosity normal'
+    ensure_system_success '
+    dotnet build src/Amockibia/Amockibia.csproj --configuration Release --verbosity normal
+    dotnet pack src/Amockibia/Amockibia.csproj --configuration Release --verbosity normal
+    '
     puts '== Package Finished =='
 end
