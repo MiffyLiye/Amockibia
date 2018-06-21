@@ -1,10 +1,10 @@
 # Amockibia
-[![AppVeyor branch](https://img.shields.io/appveyor/ci/MiffyLiye/Amockibia/master.svg?style=flat-square&label=windows%20build)](https://ci.appveyor.com/project/MiffyLiye/amockibia/branch/master)
-[![Travis branch](https://img.shields.io/travis/MiffyLiye/Amockibia/master.svg?style=flat-square&label=linux%20build)](https://travis-ci.org/MiffyLiye/Amockibia)
-[![Codecov branch](https://img.shields.io/codecov/c/github/MiffyLiye/Amockibia/master.svg?style=flat-square)](https://codecov.io/gh/MiffyLiye/Amockibia)
+[![Build status](https://ci.appveyor.com/api/projects/status/ye6q2mr0xwo7h497/branch/master?svg=true)](https://ci.appveyor.com/project/MiffyLiye/amockibia/branch/master)
+[![Build Status](https://travis-ci.org/MiffyLiye/Amockibia.svg?branch=master)](https://travis-ci.org/MiffyLiye/Amockibia)
+[![codecov](https://codecov.io/gh/MiffyLiye/Amockibia/branch/master/graph/badge.svg)](https://codecov.io/gh/MiffyLiye/Amockibia)
 
-[![NuGet](https://img.shields.io/nuget/v/Amockibia.svg?style=flat-square)](https://www.nuget.org/packages/Amockibia/)
-[![Libraries.io for GitHub](https://img.shields.io/librariesio/github/MiffyLiye/Amockibia.svg?style=flat-square)](https://libraries.io/github/MiffyLiye/Amockibia)
+[![NuGet version](https://badge.fury.io/nu/Amockibia.svg)](https://badge.fury.io/nu/Amockibia)
+[![Libraries.io for GitHub](https://img.shields.io/librariesio/github/MiffyLiye/Amockibia.svg)](https://libraries.io/github/MiffyLiye/Amockibia)
 
 A hybrid HTTP mock library that can start both in memory server and self host server.
 
