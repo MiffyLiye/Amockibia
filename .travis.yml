@@ -1,10 +1,11 @@
 language: csharp
 solution: Amockibia.sln
 sudo: required
-dotnet: 2.1
+dotnet: 2.2
 mono: none
 os:
   - linux
+dist: xenial
 
 before_script:
   - dotnet restore
